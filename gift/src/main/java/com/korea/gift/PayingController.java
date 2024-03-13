@@ -40,7 +40,7 @@ public class PayingController {
 	final WishCartDAO wishCart_dao;
 
 	@RequestMapping("payitem")
-	public String payitem(@RequestParam("item_no") int item_no, MemberDTO memberDTO, CartDTO cartDTO, String payment, Model model) {
+	public String payitem(@RequestParam("item_no") int item_no, CartDTO cartDTO, String payment, Model model) {
 	    
 	      Integer show = (Integer) session.getAttribute("m_idx");
 
@@ -54,7 +54,9 @@ public class PayingController {
 	    	int res = wishCart_dao.selectCount(m_idx);
 	    //cart에 담긴 정보가 하나 이상일 때 
 	    	if(res >= 1) {
-	    		return Common.Paying.VIEW_PATH+"paying.jsp";
+	    		CartItemDTO ItemOne = wishCart_dao.cartOne(cartDTO);
+	    		model.addAttribute("ItemOne", ItemOne);
+	    		return "redirect:/paying";
 	    	}
 	    // cart에 담긴 정보가 없을 때 
 	    	if(res <= 0) {
@@ -76,7 +78,7 @@ public class PayingController {
 	    	}
 	    }
 		
-	    return Common.Paying.VIEW_PATH + "paying.jsp";
+	    return "redirect:/paying";
 	}
 	
 	@RequestMapping("card")

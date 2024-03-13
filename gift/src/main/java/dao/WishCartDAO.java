@@ -76,7 +76,7 @@ public class WishCartDAO {
 	public int cartItem(CartDTO cartDTO) {
 		return sqlSession.insert("wishCart.cartItem", cartDTO);
 	}
-	
+	// 회원 정보로 구매 상품 조회하기
 	public int selectCount(int m_idx) {
 		return sqlSession.selectOne("wishCart.idxCount", m_idx);
 	}
