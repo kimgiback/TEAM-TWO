@@ -1,0 +1,81 @@
+/* common */
+body{margin: 0; padding: 0; box-sizing: border-box; height: 100%; display: flex; flex-direction: column; margin-top: auto;}
+ul, ol, li{list-style: none;}
+a{text-decoration: none; color: #444;}
+
+/* main */
+main{border: 1px solid red; width: 100%; padding-bottom: 50px;}
+.contents{width: 100%; padding: 70px 0;}
+.inner{width: 1170px; margin: 0 auto;}
+
+/* sub-menu */
+.subMenu{display: flex; justify-content: space-between; margin-bottom: 35px;} 
+.subMenu .tab{position: relative; display: flex; width: 100%; height: 40px; font-weight: bold;}  
+.subMenu .tab > li > .menuBtn{
+    width: 200px; height: 40px; font-size: 16px; font-weight: bold; 
+    background-color: rgb(224, 232, 238); border-radius: 3px; border: 1px solid rgb(101, 101, 51);
+}
+.subMenu .tab > li > .menuBtn:hover{background-color: rgb(118, 39, 116); cursor: pointer; color: #ddd; transition: 0.3s;}
+
+/* inquiry-form */
+.inquiryBox h2 {font-size: 16px; font-weight: bold;}
+.inquiryBox h2 > a{padding: 0 3px; line-height: 30px; color: red;}
+
+.inquiryBox table {
+    line-height: 12px; width: 100%; border-spacing: 0; border-collapse: collapse; 
+    margin-bottom: 25px; border-top: 1px solid #bc293a; border-bottom: 1px solid #bc293a;
+    font-size: 13px; 
+}
+.inquiryBox table col:nth-of-type(1){width: 150px;}
+.inquiryBox table col:nth-of-type(2){}
+
+.inquiryBox .inquiry tr{text-align: left;}
+.inquiryBox .inquiry th, .inquiryBox .inquiry td{
+    position: relative; padding: 14px 20px 12px 20px; 
+    border-bottom: 1px solid #ddd; background-color: #f7f7f7;       
+}
+.inquiryBox .inquiry th {color: #252525; background-color: rgb(244, 236, 244);}
+.inquiryBox .inquiry td {color: #666;}
+.inquiryBox .inquiry select {font-size: 13px; height: 22px; }
+.inquiryBox .inquiry select.selType01 {padding-left: 2px; color: #666; border: 1px solid #c5c5c5; }
+.inquiryBox .inquiry .type170 {width: 170px;}
+.inquiryBox .inquiry input {height: 23px; border: 1px solid #bbb; }
+.inquiryBox .inquiry .writer {width: 170px; height: 23px; border: 1px solid #bbb; color: #666;}
+.inquiryBox .inquiry .phoneNo {width: 220px; height: 23px; border: 1px solid #bbb; color: #666;}
+.inquiryBox table tbody .inquiry_contents th{vertical-align: middle;} 
+
+.inquiryBox .inquiry textarea {
+    text-align: left; line-height: 40px; font-size: 16px; width: 790px; 
+    background: #fff; border: 1px solid #bbb; padding: 10px; overflow-y: scroll; 
+}
+
+/* info-agree */
+.info_policy{width: 100%; margin-bottom: 10px; border-top: 1px solid #bc292f; color: #666;}
+.title_policy{background-color: rgb(234, 234, 238); font-size: 13px;}
+.title_policy_a{padding: 2 3px; line-height: 30px; padding: 10px 10px 10px 10px; color: red;} 
+.con_policy_box{height: 130px;}
+.con_policy_box .con_policy{width: 80%; align-items: center; margin: 0 auto; margin-top: 30px;}
+
+.info_policy .con_policy table{width: 100%;}
+.info_policy .con_policy table col:nth-of-type(1){width: 36%;}
+.info_policy .con_policy table col:nth-of-type(2){width: 32%;}
+.info_policy .con_policy table col:nth-of-type(3){width: 32%;}
+
+.info_policy .con_policy table th {
+    padding: 10px 20px 8px 20px; border-bottom: 1px solid #ddd; 
+    background: #f1f0f0; text-align: center;  
+}
+.info_policy .con_policy table td {
+    padding: 18px 20px 15px 20px; border-bottom: 1px solid #d6d6d6;
+    color: #246d8c; text-align: center;  
+}
+.agreeCheckBox{height: 50px; padding: 0 100px;}
+.agreeCheckInfo{line-height: 20px; font-size: 13px; font-weight: bold;}
+
+/* submit or cancel */
+.btnBox{text-align: center; padding: 20px 0; border-top: 1px solid rgb(207, 205, 205); }
+.registry{display: inline-block; height: 38px; width: 120px; font-weight: bold; border: 1px solid black; border-radius: 3px; margin: 0 10px; cursor: pointer;}
+.sign{background-color: rgb(93, 10, 188); color: white;}
+.cancel{background-color: rgb(244, 243, 243); color: black;}
+.sign:hover{background-color: rgb(215, 204, 228); color: rgb(40, 69, 5);}
+.cancel:hover{background-color: rgb(83, 82, 82); color: white;}

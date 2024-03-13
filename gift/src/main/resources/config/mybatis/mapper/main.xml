@@ -1,0 +1,54 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"[]>
+<mapper namespace="main">
+  <!-- 카테고리 정보 -->
+  <select id="category_info" resultType="CategoryDTO">
+		SELECT *
+		FROM CATEGORY
+	</select>
+  <!-- 전체 카테고리 상품 수 -->
+  <select id="itemCount_all" resultType="Integer">
+		SELECT COUNT(*) 
+		FROM ITEM
+	</select>
+  <!-- 특정 카테고리 상품 수 -->
+  <select id="itemCount_cate" parameterType="Integer" resultType="Integer">
+		SELECT COUNT(*)
+		FROM ITEM
+		WHERE category_no = #{cate_no}
+	</select>
+  <!-- 전체 카테고리 정렬 -->
+  <select id="sortHitItemList_all" parameterType="java.util.Map" resultType="ItemDTO">
+	 	SELECT *
+		FROM (SELECT RANK() OVER (ORDER BY readhit DESC) NO, i.* from ITEM i)
+		WHERE NO BETWEEN #{start} AND #{end}
+	</select>
+  <select id="sortAscItemList_all" resultType="ItemDTO">
+		SELECT *
+		FROM ITEM 
+		ORDER BY item_price ASC
+	</select>
+  <select id="sortDescItemList_all" resultType="ItemDTO">
+		SELECT *
+		FROM ITEM
+		ORDER BY item_price DESC
+	</select>
+  <!-- 특정 카테고리 정렬 -->
+  <select id="sortHitItemList_cate" parameterType="Integer" resultType="ItemDTO">
+		SELECT *
+		FROM ITEM
+		WHERE category_no = #{cate_no}
+		ORDER BY readhit DESC
+	</select>
+  <select id="sortAscItemList_cate" parameterType="Integer" resultType="ItemDTO">
+		SELECT *
+		FROM ITEM 
+		WHERE category_no = #{cate_no}
+		ORDER BY item_price ASC
+	</select>
+  <select id="sortDescItemList_cate" parameterType="Integer" resultType="ItemDTO">
+		SELECT *
+		FROM ITEM
+		WHERE category_no = #{cate_no}
+		ORDER BY item_price DESC
+	</select>
+</mapper>
