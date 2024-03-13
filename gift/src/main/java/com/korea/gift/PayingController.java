@@ -54,9 +54,14 @@ public class PayingController {
 	    	int res = wishCart_dao.selectCount(m_idx);
 	    //cart에 담긴 정보가 하나 이상일 때 
 	    	if(res >= 1) {
+	    		cartDTO = new CartDTO();
+	    		 cartDTO.setCart_quantity(1);
+	    		 cartDTO.setItem_no(item_no);
+	    		 cartDTO.setM_idx(m_idx);
 	    		CartItemDTO ItemOne = wishCart_dao.cartOne(cartDTO);
+	    		System.out.println("cartDTO="+cartDTO);
 	    		model.addAttribute("ItemOne", ItemOne);
-	    		return "redirect:/paying";
+	    	System.out.println("ItemOne="+ItemOne);
 	    	}
 	    // cart에 담긴 정보가 없을 때 
 	    	if(res <= 0) {
@@ -64,7 +69,6 @@ public class PayingController {
 	    		 cartDTO.setCart_quantity(1);
 	    		 cartDTO.setItem_no(item_no);
 	    		 cartDTO.setM_idx(m_idx);
-	 	       
 	    		 //insert
 	 	        int cartItem = wishCart_dao.cartItem(cartDTO);
 	 	        
@@ -73,12 +77,10 @@ public class PayingController {
 	 	    
 	 	        model.addAttribute("cartItem", cartItem);
 	 	        model.addAttribute("ItemOne", ItemOne);
-	 	        System.out.println("cartItem="+cartItem);
-	 	       System.out.println("ItemOne="+ItemOne);
 	    	}
 	    }
 		
-	    return "redirect:/paying";
+	    return Common.Paying.VIEW_PATH+"paying.jsp";
 	}
 	
 	@RequestMapping("card")
