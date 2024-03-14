@@ -37,7 +37,7 @@
 	                    	
 	                    	$("#buLogin").click(function(){
 	                    		formObj1.attr("method", "post");
-	                    		formObj1.attr("action", "/buMember/login");
+	                    		formObj1.attr("action", "/bu/member/buLogin");
 	                    		
 	                    		formObj1.submit();
 	                    	})
@@ -48,7 +48,7 @@
 	                
 	                	<script>
 	                		$("#buRegister").click(function(){
-	                			self.location = "/buMember/registerForm";
+	                			self.location = "/bu/member/buRegisterForm";
 	                		})
 	                	</script>
 	                </p>
@@ -65,15 +65,15 @@
         			
         			<script>
         				$("#logout").click(function(){
-        					self.location="/buMember/logout";
+        					self.location="bu/member/buLogout";
         				})
         			</script>
         		</p>
         		<!-- 임시로 고객센터, 상품등록 넣음 -->
         		<p>
-        			<a href="/buBoard/qnaList">고객센터</a>
+        			<a href="bu/board/buQnaList">고객센터</a>
         		</p>
-        		 <p>
+        		        		<p>
         			<a href="/buItem/insertForm">상품등록</a>
         		</p>
         	</div>

@@ -1,4 +1,2 @@
 eclipse.preferences.version=1
-encoding//src/main/java/com/korea/gift/BuItemController.java=UTF-8
-encoding//src/main/java/com/korea/gift/BuMemberController.java=UTF-8
-encoding//src/main/resources/context/Context_1_mybatis.java=UTF-8
+encoding//src/main/java/com/korea/gift/MemberController.java=UTF-8

@@ -31,7 +31,7 @@
 			
 			$("#update").on("click", function(){
 				formObj.attr("method", "post");
-				formObj.attr("action", "/buBoard/replyUpdate");
+				formObj.attr("action", "/bu/board/buReplyUpdate");
 				formObj.submit();
 			})
 </script>
