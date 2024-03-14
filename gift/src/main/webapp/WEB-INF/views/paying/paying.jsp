@@ -69,9 +69,8 @@ function handleButtonClick(event) {
     event.target.classList.add('active');
 
     // 클릭한 버튼의 값을 결제 수단에 바로 반영
-    var paymentValue = event.target.value;
-    document.querySelector('input[name="payment"]').value = paymentValue;
-    document.querySelector('.active').innerText = paymentValue;
+    document.querySelector('input[name="payment"]').value = paymentType;
+    document.querySelector('#payment').innerText = paymentType;
 
     // card 함수 호출
     card(paymentType);
@@ -145,7 +144,7 @@ function BuyingCheck() {
 		          <img src="${pageContext.request.contextPath}/resources/images/item/${ItemOne.img_name}.jpg" width="200" height="200" class="image">
 		
 		    	<div class="text-container">
-		               <%-- <input type="hidden" name="payment" value="${ItemList.payment}"> --%>
+		              <input type="hidden" name="payment" value="${ItemOne.payment}"> 
 		               <input type="hidden" name="item_no" value="${ItemOne.item_no}">
 		               <input type="hidden" name="m_idx" value="${ItemOne.m_idx}">
 		               <span class="brand">${ItemOne.brand}</span>
@@ -174,7 +173,7 @@ function BuyingCheck() {
 			</tr>
 			<tr>
 				<td colspan="2">결제 수단</td>
-				<td name="payment">${ItemOne.payment } </td>
+				<td name="payment"><span id="payment" >${ItemOne.payment }</span></td>
 			</tr>
 			<tr>
 				<td colspan="2">결제 금액</td>
