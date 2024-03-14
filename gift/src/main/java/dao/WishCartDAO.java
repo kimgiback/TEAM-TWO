@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import dto.CartDTO;
 import dto.CartItemDTO;
+import dto.ItemDTO;
 import dto.WishDTO;
 import dto.WishItemDTO;
 import lombok.RequiredArgsConstructor;
@@ -75,9 +76,5 @@ public class WishCartDAO {
 	//구매하기 에서 카트로 보내버리기
 	public int cartItem(CartDTO cartDTO) {
 		return sqlSession.insert("wishCart.cartItem", cartDTO);
-	}
-	// 회원 정보로 구매 상품 조회하기
-	public int selectCount(int m_idx) {
-		return sqlSession.selectOne("wishCart.idxCount", m_idx);
 	}
 }

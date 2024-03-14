@@ -40,49 +40,37 @@ public class PayingController {
 	final WishCartDAO wishCart_dao;
 
 	@RequestMapping("payitem")
-	public String payitem(@RequestParam("item_no") int item_no, CartDTO cartDTO, String payment, Model model) {
-	    
-	      Integer show = (Integer) session.getAttribute("m_idx");
-
-	    if(show == null) {
-	    	return Common.Member.VIEW_PATH+"login.jsp";
-	    	
-	    }
-	    //로그인 했을 때
-	    if(show != null) {
-	    	int m_idx = show;
-	    	int res = wishCart_dao.selectCount(m_idx);
-	    //cart에 담긴 정보가 하나 이상일 때 
-	    	if(res >= 1) {
-	    		cartDTO = new CartDTO();
-	    		 cartDTO.setCart_quantity(1);
-	    		 cartDTO.setItem_no(item_no);
-	    		 cartDTO.setM_idx(m_idx);
-	    		CartItemDTO ItemOne = wishCart_dao.cartOne(cartDTO);
-	    		System.out.println("cartDTO="+cartDTO);
-	    		model.addAttribute("ItemOne", ItemOne);
-	    	System.out.println("ItemOne="+ItemOne);
-	    	}
-	    // cart에 담긴 정보가 없을 때 
-	    	if(res <= 0) {
-	    		 cartDTO = new CartDTO();
-	    		 cartDTO.setCart_quantity(1);
-	    		 cartDTO.setItem_no(item_no);
-	    		 cartDTO.setM_idx(m_idx);
-	    		 //insert
-	 	        int cartItem = wishCart_dao.cartItem(cartDTO);
-	 	        
-	 	        //select
-	 	        CartItemDTO ItemOne = wishCart_dao.cartOne(cartDTO);
-	 	    
-	 	        model.addAttribute("cartItem", cartItem);
-	 	        model.addAttribute("ItemOne", ItemOne);
-	    	}
-	    }
-		
-	    return Common.Paying.VIEW_PATH+"paying.jsp";
-	}
 	
+	public String payitem(@RequestParam("item_no") int item_no, Model model) {
+
+		
+		CartDTO cartDTO = new CartDTO();
+		
+		cartDTO.setCart_quantity(1);
+		cartDTO.setItem_no(item_no);
+		cartDTO.setM_idx(41);
+		
+	
+		int cartItem = wishCart_dao.cartItem(cartDTO);
+		System.out.println("cartItem="+cartItem);
+		
+	
+		CartItemDTO ItemOne = wishCart_dao.cartOne(cartDTO);
+		/*
+		 * MemberDTO memberDTO = pay_dao.payitem(map);
+		 *  List<ItemDTO> Payinglist =
+		 * pay_dao.pay_info(map); map.put("memberDTO", memberDTO);
+		 *  map.put("Payinglist",
+		 * Payinglist);
+		 */
+		System.out.println("ItemOne="+ItemOne);
+		
+		model.addAttribute("cartItem",cartItem);
+		model.addAttribute("ItemOne",ItemOne);
+		return Common.Paying.VIEW_PATH + "paying.jsp";
+
+	}
+
 	@RequestMapping("card")
 	@ResponseBody
 	public String card(Model model, MemberDTO dto, @RequestParam("item_no") int item_no ){

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form role="write" method="post" action="/bu/board/buReplyWrite">
+	<form role="write" method="post" action="/buBoard/replyWrite">
 		<p>
 			 <label for="qna_no"></label>
 			 <input type="text" id="qna_no" name="qna_no" value="${qna_no }">
