@@ -1,5 +1,3 @@
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -11,8 +9,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/item/item.css">
 <script src="${pageContext.request.contextPath}/resources/js/httpRequest.js"></script>
-
 <script type="text/javascript">
+
 function cart(item_no) {
 	let url = "${pageContext.request.contextPath}/cart_ajax";
 	let param = "item_no=" + item_no;
@@ -22,7 +20,6 @@ function cart(item_no) {
 
 function cartRs() {
 	if (xhr.readyState == 4 && xhr.status == 200) {
-		
 		let data = xhr.responseText;
 		let json = (new Function('return' + data))();
 		
@@ -33,28 +30,14 @@ function cartRs() {
 			return;
 		}
 		
-		alert('추가 실패');
+		alert('로그인 후 이용해주세요');
+		location.href='${pageContext.request.contextPath}/mlogin';
 	}
 }
 
 function wish(item_no) {
-	
 	let url = "${pageContext.request.contextPath}/wish_ajax";
 	let param = "item_no=" + item_no;
-	
-	let likePush = document.getElementById('userLike');
-		
-	if (!likePush.classList.contains('likePush')){
-		likePush.classList.add('likePush');
-		likePush.childNodes[0].style.backgroundImage="url('${pageContext.request.contextPath}/resources/images/icn_like_pressed.png')";
-		
-		sendRequest(url, param, wishRs, "GET");
-		return;
-		
-	} else if (likePush.classList.contains('likePush')) {
-		likePush.classList.remove('likePush');
-		likePush.childNodes[0].style.backgroundImage="url('${pageContext.request.contextPath}/resources/images/icn_like_default.png')";
-	}
 
 	sendRequest(url, param, wishRs, "GET");
 }
@@ -64,45 +47,46 @@ function wishRs() {
 
 		let data = xhr.responseText;
 		let json = (new Function('return' + data))();
-		
-		if (json.result == 'del_success') {
-			alert('찜 삭제 성공');
+
+		if (json.result == 'login_null') {
+			alert('로그인 후 이용해주세요');
+			location.href='${pageContext.request.contextPath}/mlogin';
+			return;			
 		}
 		
-		if (json.result == 'add_success') {
-			alert('찜 추가 성공');
+		let likePush = document.getElementById('userLike');
+			
+		if (!likePush.classList.contains('likePush')){
+			likePush.classList.add('likePush');
+			likePush.childNodes[0].style.backgroundImage="url('${pageContext.request.contextPath}/resources/images/icn_like_pressed.png')";
+			return;
+		} else if (likePush.classList.contains('likePush')) {
+			likePush.classList.remove('likePush');
+			likePush.childNodes[0].style.backgroundImage="url('${pageContext.request.contextPath}/resources/images/icn_like_default.png')";
 		}
 	}
 }
-
 
 function payitem(f) {
 	
 	f.submit();
 }
 </script>
-
 </head>
 <body>
 <form action="payitem" method="get" name="f">
 <div id="wrapper">
 
-    <!-- 헤더영역 -->
-    <header>
-    	header
-	    <input type="button" value="로고" onclick="location.href='${pageContext.request.contextPath}'">
-	   	<input type="button" value="장바구니" onclick="location.href='${pageContext.request.contextPath}/cartList'">
-	    <input type="button" value="찜" onclick="location.href='${pageContext.request.contextPath}/wishList'">
-    </header>
-    
+	<!-- 헤더영역 -->
+	<jsp:include page="../commons/header.jsp"></jsp:include>
+
     <section id="sub-product" class="section">
 
       <div id="detailArea">
-
         <!-- 상품 정보 -->
         <div class="detailInner clearfix">
         	<div class="imgWrap">
-            	<img src="${pageContext.request.contextPath}/resources/images/item/${item.item_image}.jpg">
+            	<img src="${pageContext.request.contextPath}/resources/images/item/${item.img_name}">
             	이미지
           	</div>
           	<div class="txtWrap">
@@ -162,10 +146,15 @@ function payitem(f) {
 	               			<div id="userLike" class="btnLike"><em></em></div>
 	              		</a>
 	              	</c:when>
+	              	<c:when test="${wish eq 'null'}">
+	              		<a onclick="wish(${item.item_no})">
+	               			<div id="userLike" class="btnLike"><em></em></div>
+	              		</a>
+	              	</c:when>
 	              </c:choose>
 
 	              <!-- 구매하기 -->
-	              <a href="payitem?item_no=${item.item_no }">
+	              <a href="payitem?item_no=${item.item_no}">
 	                <div class="btnBuy">구매하기</div>
 	              </a>
 	      		</div>
@@ -181,14 +170,9 @@ function payitem(f) {
 		</div>
 
 	</div>
-
     </section>
   </div>
-  
-    <!-- 푸터영역 -->
-    <footer>
-      footer
-    </footer>
+
   </form>  
 </body>
 <script type="text/javascript">
@@ -204,5 +188,4 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 </script>
-
 </html>

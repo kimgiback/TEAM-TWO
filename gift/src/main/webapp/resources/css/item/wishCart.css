@@ -1,16 +1,5 @@
 @charset "UTF-8";
 
-header {
-	height: 150px;
-	text-align: center;
-  background-color: #eee;
-}
-footer {
-	height: 150px;
-	text-align: center;
-  background-color: #eee;
-}
-
 * {margin: 0; padding: 0; box-sizing: border-box;}
 ul, ol, li {list-style: none;}
 a {text-decoration: none; color: #222;}
@@ -29,7 +18,6 @@ table {
 	width: 1040px;
 	margin: auto;
 	padding: 10px;
-	border: 1px solid #eee;
 }
 
 /* -------- 찜 페이지 -------- */
@@ -149,6 +137,7 @@ colgroup {
   height: 100%;
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 /* 하단바 */
@@ -186,21 +175,20 @@ colgroup {
 }
 
 a.btn_type09 {
-  border: 1px solid black;
   display: inline-block;
   text-align: center;
   margin-right: 10px;
-  min-width: 73px;
+  width: 150px;
+  color: #fff;
+  border-radius: 4px;
+  background-color: #ec2028;
 }
 
 a.btn_type11 {
-  border: 1px solid black;
   display: inline-block;
   text-align: center;
   min-width: 73px;
-}
-
-/* 페이징 */
-#paging {
-  text-align: center;
+  border: 1px solid #b6b6b6;
+  border-radius: 4px;
+  background-color: #fff;
 }
