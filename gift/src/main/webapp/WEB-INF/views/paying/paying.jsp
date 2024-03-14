@@ -147,6 +147,7 @@ function BuyingCheck() {
 		              <input type="hidden" name="payment" value="${ItemOne.payment}"> 
 		               <input type="hidden" name="item_no" value="${ItemOne.item_no}">
 		               <input type="hidden" name="m_idx" value="${ItemOne.m_idx}">
+		               <input type="hidden" name="item_name" value="${ItemOne.item_name}">
 		               <span class="brand">${ItemOne.brand}</span>
 		               <span class="item_name">${ItemOne.item_name}</span>
 		               <span class="quantity">총 1개</span>
