@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="p">
+
+<!-- 구매 상품정보   -->
+	<select id="payitem" parameterType="int"> 
+SELECT I.ITEM_NO, IT.IMG_NAME, I.ITEM_NAME, I.ITEM_PRICE, I.ITEM_INFO, I.ITEM_IMAGE, I.BRAND, M.PAYMENT
+FROM ITEM I
+LEFT JOIN PAY P ON I.ITEM_NO = P.ITEM_NO
+LEFT JOIN ITEM_IMAGEFILE IT ON I.ITEM_NO = IT.ITEM_NO
+LEFT JOIN MEMBER M ON P.PAYMENT = M.PAYMENT
+WHERE M.M_IDX = #{m_idx}
+	</select>
+	
+	
+	<!-- 결제 수단 업데이트 -->
+	<update id="paying_info_update" parameterType="java.util.HashMap">
+		UPDATE MEMBER SET PAYMENT=#{payment}
+	</update>
+					 
+<insert id="BuyingCheck" parameterType="item">
+    INSERT INTO PAY (M_IDX, ITEM_NO, ITEM_NAME, ITEM_PRICE, ITEM_INFO, ITEM_STOCK, BU_NO, BRAND, READHIT, PAYMENT)
+    VALUES (SEQ_M_IDX.NEXTVAL, 
+            #{item_no},  
+            #{item_name},
+            #{item_price}, 
+            #{item_info},
+            #{item_stock},
+            #{bu_no},  
+            #{brand},
+            #{readhit},
+            #{payment}
+    )
+</insert>
+
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"[]>
+<mapper namespace="m">
+  <!-- 
+	<resultMap type="member" id="molu">
+		<result column="m_id" property="bu_id"/> 
+		<result column="m_pwd" property="bu_pwd"/> 
+		<result column="m_name" property="bu_name"/> 
+		<result column="m_adress" property="bu_adress"/> 
+		<result column="m_email" property="bu_email"/> 
+		<result column="m_phone" property="bu_phone"/> 
+	</resultMap>
+	
+	resultMap="molu" 
+ -->
+  <!-- 로그인 -->
+  <select id="memberlogin" parameterType="java.util.HashMap" resultType="member">
+		select * from member where m_id =#{id} and m_pwd =#{pwd}
+	</select>
+  <!-- <insert id="memberjoin" parameterType="dto.memberDTO"> -->
+  <!-- INSERT INTO MEMBER (M_IDX, M_ID, M_PWD, M_NAME, M_ADDRESS, M_EMAIL, M_PHONE)  -->
+  <!--  VALUES (SEQ_M_IDX.NEXTVAL, #{m_id}, #{m_pwd}, #{m_name}, #{m_adress}, #{m_email},#{m_phone})-->
+  <!-- </insert> -->
+  <!-- 통상적인 회원가입 -->
+  <!-- insert, delete, update는 resultType를 자동처리해 쓸필요없음. -->
+  <insert id="memberjoin" parameterType="java.util.HashMap">
+		INSERT INTO MEMBER (M_IDX, M_ID, M_PWD, M_NAME, M_ADDRESS, M_EMAIL, M_PHONE) 
+		VALUES (SEQ_M_IDX.NEXTVAL, #{id}, #{pwd}, #{name}, #{addr}, #{email}, #{phone})
+	</insert>
+  <!-- 가입 시 id 중복확인 -->
+  <!-- java.lang.String 대신 String 쓸 수 있음. -->
+  <select id="checkid" parameterType="String" resultType="String">
+		select m_id from member where m_id=#{id}
+	</select>
+</mapper>
+    

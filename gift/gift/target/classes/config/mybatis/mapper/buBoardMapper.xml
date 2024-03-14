@@ -1,0 +1,31 @@
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"[]>
+<mapper namespace="buBoard">
+  <!-- selectList, selectOne(detail), insert(댓글등록) update, delete(댓글) 필요 -->
+  <!-- qna관련 -->
+  <select id="boardList" resultType="QnaDTO">
+select * from qna
+</select>
+  <select id="boardOne" resultType="QnaDTO" parameterType="int">
+select * from qna where qna_no=#{qna_no}
+</select>
+  <!-- 답글관련 -->
+  <select id="replyList" resultType="ReplyDTO" parameterType="int">
+select * from reply where qna_no=#{qna_no}
+</select>
+  <select id="replyOne" resultType="ReplyDTO" parameterType="int">
+select * from reply where re_no=#{re_no}
+</select>
+  <insert id="replyInsert" parameterType="ReplyDTO">
+insert into reply(bu_no, qna_no, re_no, re_title, re_content, regidate)
+values(#{bu_no}, #{qna_no}, seq_re_no.nextval, #{re_title}, #{re_content}, sysdate)
+</insert>
+  <update id="replyUpdate" parameterType="ReplyDTO">
+update reply
+set re_title=#{re_title}, re_content=#{re_content}
+where re_no=#{re_no}
+</update>
+  <delete id="replyDelete" parameterType="int">
+delete from reply where re_no=#{re_no}
+</delete>
+</mapper>
+    

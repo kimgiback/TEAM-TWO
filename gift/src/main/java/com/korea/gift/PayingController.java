@@ -109,6 +109,7 @@ public class PayingController {
 	@ResponseBody
 	public String BuyingCheck(PayingDTO dto) {
 		int res = pay_dao.BuyingCheck(dto);
+		System.out.println("dto="+dto);
 		System.out.println("Res=" + res);
 
 		if (res >= 0) {
