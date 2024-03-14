@@ -11,5 +11,4 @@ public class CartItemDTO {
 	private int item_price;
 	private String brand;
 	private String img_name;
-	private String payment;
 }

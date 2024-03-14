@@ -1,4 +1,4 @@
-    <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/main/main.css">
+<!-- SWIPER 외부 라이브러리 연결-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="resources/js/httpRequest.js"></script>
 <script type="text/javascript"></script>
 </head>
@@ -14,20 +17,26 @@
 <div id="wrapper">
 
 	<!-- 헤더영역 -->
-	<header>
-	    header
-	    <input type="button" value="로고" onclick="location.href='${pageContext.request.contextPath}'">
-	    <input type="button" value="장바구니" onclick="location.href='${pageContext.request.contextPath}/cartList'">
-	    <input type="button" value="찜" onclick="location.href='${pageContext.request.contextPath}/wishList'">
-	</header>
+	<jsp:include page="../commons/header.jsp"></jsp:include>
 
 	<main>
 		<!-- 광고 -->
 		<section id="main-banner" class="section">
-			<div class="swiper _swiper-01">
-				<div class="swiper-wrapper">
-				광고배너
-				</div>
+			<!-- Slider main container -->
+			<div class="swiper">
+			  <!-- Additional required wrapper -->
+			  <div class="swiper-wrapper">
+			    <!-- Slides -->
+			    <div class="swiper-slide"><img src="resources/images/main/ad/GNB_M_Gifti20230427__174728_disp_img_web.jpg" class="swiper-lazy"></div>
+			    <div class="swiper-slide"><img src="resources/images/main/ad/GNB_M_Gifti20231102__120747_disp_img_web.jpg" class="swiper-lazy"></div>
+			    <div class="swiper-slide"><img src="resources/images/main/ad/GNB_M_Gifti20240123__105944_disp_img_web.jpg" class="swiper-lazy"></div>
+			  </div>
+			  <!-- If we need pagination -->
+			  <div class="swiper-pagination"></div>
+			
+			  <!-- If we need navigation buttons -->
+			  <div class="swiper-button-prev"></div>
+			  <div class="swiper-button-next"></div>
 			</div>
 		</section>
 		
@@ -84,17 +93,16 @@
 						</div>						
 					</div>
 				</div>
-				<div id="paging"></div>
+				<!-- 페이징 -->
+				<div class="pageNavi">
+				  <div id="paging" class="paging">
+				  </div>
+				</div>
 				<!-- //상품 -->
 			</div>
 		</section>
 	</main>
 </div>
-
-	<!-- 푸터영역 -->
-    <footer>
-		footer
-	</footer>
 
 </body>
 <script type="text/javascript">
@@ -124,8 +132,9 @@ function sort(sort, page) {
 	            sendRequest(url, param, cateRs, "GET");
 	            return;
 	        }
+	        
 	        url = "list_ajax";
-	        param = "cate_no=" + cateItem.classList[1] + "&sort=" + sort;
+	        param = "cate_no=" + cateItem.classList[1] + "&sort=" + sort + "&page=" + (page ? page : "");        
 	        sendRequest(url, param, cateRs, "GET");
 	    }
 	});
@@ -142,7 +151,6 @@ function btnSort(btn) {
 	switch(true) {
 		case btn.classList.contains('hit') :
 			sort('hit');
-			console.log('인기순');
 			break;
 		case btn.classList.contains('priceAsc') :
 			sort('priceAsc');
@@ -177,8 +185,6 @@ function cateRs() {
 		let list = json.list;
 		let pageMenu = json.pageMenu;
 		
-		console.log(json);
-		
     	cntTag.innerText = count;
     	paging.innerHTML = pageMenu;
 
@@ -203,7 +209,7 @@ function printList(list) {
 	    let imgDiv = document.createElement('div');
 	    imgDiv.classList.add('item_img');
 	    let img = document.createElement('img');
-	    img.src = 'resources/images/item/' + item.item_image + '.jpg';
+	    img.src = 'resources/images/item/' + item.img_name;
 	    imgDiv.appendChild(img);
 	      
 	    let txtWrapDiv = document.createElement('div');
@@ -229,6 +235,24 @@ function printList(list) {
 	});
 }
 
+/* 광고배너 */
+new Swiper('.swiper', {
+	  autoplay: {
+	    delay: 5000
+	  },
+	  loop: true,
+	  slidesPerView: 1,
+	  spaceBetween: 10,
+	  centeredSlides: true,
+	  pagination: {
+	    el: '.swiper-pagination',
+	    clickable: true
+	  },
+	  navigation: {
+	    prevEl: '.swiper-button-prev',
+	    nextEl: '.swiper-button-next'
+	  }
+})
 </script>
 </html>
     

@@ -1,4 +1,4 @@
-   package com.korea.gift;
+    package com.korea.gift;
 
 import java.io.File;
 import java.io.IOException;
@@ -52,7 +52,7 @@ public class buItemController {
 		String webPath = "/resources/images/item";
 		String savePath= request.getServletContext().getRealPath(webPath);
 		String filename = UUID.randomUUID().toString();
-		MultipartFile photo = dto.getItem_image();
+		MultipartFile photo = dto.getItem_images();
 		
 		//String�� integer��
 		dto.setItem_price((int)dto.getItem_price());

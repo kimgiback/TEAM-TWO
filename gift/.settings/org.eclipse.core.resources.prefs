@@ -1,13 +1,3 @@
 eclipse.preferences.version=1
-encoding//src/main/java/com/korea/gift/BuMemberController.java=UTF-8
-encoding//src/main/java/com/korea/gift/ItemController.java=UTF-8
 encoding//src/main/java/com/korea/gift/MemberController.java=UTF-8
-encoding//src/main/java/com/korea/gift/UserQnaController.java=UTF-8
-encoding//src/main/java/com/korea/gift/WishCartController.java=UTF-8
-encoding//src/main/java/com/korea/gift/buBoardController.java=UTF-8
-encoding//src/main/java/com/korea/gift/buItemController.java=UTF-8
-encoding//src/main/java/dao/BuMemberDAO.java=UTF-8
-encoding//src/main/java/dao/ItemDAO.java=UTF-8
-encoding//src/main/java/dao/UserQnaDAO.java=UTF-8
 encoding//src/main/java/dao/WishCartDAO.java=UTF-8
-encoding//src/main/java/dto/ItemDTO.java=UTF-8

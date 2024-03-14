@@ -90,7 +90,8 @@ public class PayingController {
 		Map<String, Object> map = new HashMap<>();
 		map.put("item_no", item_no);
 		map.put("payment", dto.getPayment());
-
+		map.put("m_idx", session.getAttribute("m_idx"));
+		
 		int res = pay_dao.pay_info_update(map);
 		
 		String result = "";
@@ -119,3 +120,7 @@ public class PayingController {
 	}
 
 }
+
+
+		
+		

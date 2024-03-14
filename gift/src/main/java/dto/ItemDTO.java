@@ -9,10 +9,10 @@ public class ItemDTO {
 
 	private int item_no;
 	
-	//���� cate
+	//     cate
 	private int category_no;
 	
-	//���� business
+	//     business
 	private int bu_no;
 	
 	private String item_name;
@@ -27,11 +27,8 @@ public class ItemDTO {
 	
 	private int readhit;
 	
-	private String img_name;
+	private String img_name; // ITEM_ImageFile 테이블과 join해서 img_name 컬럼 가져옴
 	
-	//image file
 	private MultipartFile item_image;
-	//private String item_image;
-	
 	
 }
