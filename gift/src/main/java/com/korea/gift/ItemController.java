@@ -38,9 +38,9 @@ public class ItemController {
 		MemberDTO member = (MemberDTO)session.getAttribute("member");
 		int m_idx = member.getM_idx();
 	*/	
-		// 李쒖뿉 �긽�뭹�씠 議댁옱�븯�뒗吏� �솗�씤
+		// 찜에 상품이 존재하는지 확인
 		WishDTO checkWishDTO = new WishDTO();
-		checkWishDTO.setM_idx(41); // m_idx
+		checkWishDTO.setM_idx(1); // m_idx
 		checkWishDTO.setItem_no(item_no);
 		
 		String wish = "no";
@@ -50,12 +50,12 @@ public class ItemController {
 			wish = "exists";
 		}
 		
-		// �긽�뭹 �긽�꽭
+		// 상품 상세
 		ItemDTO item = itemDAO.selectOne(item_no);
 		
 		HttpSession session = request.getSession();	
 		
-		// 議고쉶�닔 利앷�
+		// 조회수 증가
 		String view = (String)session.getAttribute("view");
 		
 		if (view == null) {

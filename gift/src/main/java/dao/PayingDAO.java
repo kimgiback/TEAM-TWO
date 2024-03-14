@@ -51,6 +51,4 @@ final SqlSession sqlSession;
 		System.out.println("Payinglist3="+Payinglist);
 		return Payinglist;
 	}
-	
-
 }

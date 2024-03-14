@@ -13,29 +13,28 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import dto.BusinessDTO;
 import lombok.RequiredArgsConstructor;
 import service.BuMemberService;
+import util.Common;
 
 @Controller
-@RequestMapping("/bu/member")
+@RequestMapping("/buMember")
 @RequiredArgsConstructor
 public class BuMemberController {
-
-	private final static String BU_MEM_VIEW_PATH = "/WEB-INF/views/bu";
 
 	private final BuMemberService service;
 	
 	@Autowired
 	HttpSession session;
 
-	@RequestMapping("/buRegisterForm")
+	@RequestMapping("/registerForm")
 	public String buRegisterForm() {
-		System.out.println("/buRegisterForm");
+		System.out.println("/registerForm");
 
-		return BU_MEM_VIEW_PATH + "/buRegister.jsp";
+		return Common.Business.VIEW_PATH + "/buRegister.jsp";
 	}
 
-	@RequestMapping("/buRegister")
+	@RequestMapping("/register")
 	public String buRegister(BusinessDTO dto) {
-		System.out.println("/buRegister");
+		System.out.println("/register");
 
 		try {
 			int res = service.buRegister(dto);
@@ -44,22 +43,22 @@ public class BuMemberController {
 				return "redirect:/";
 			}
 		} catch (Exception e) {
-			return BU_MEM_VIEW_PATH + "/buRegisterError.jsp";
+			return Common.Business.VIEW_PATH + "/buRegisterError.jsp";
 		}
 
 		return null;
 	}
 
-	@RequestMapping("buLoginForm")
+	@RequestMapping("/loginForm")
 	public String buLoginForm() {
-		System.out.println("/buLoginForm");
+		System.out.println("/loginForm");
 
-		return BU_MEM_VIEW_PATH + "/buLogin.jsp";
+		return Common.Business.VIEW_PATH + "/buLogin.jsp";
 	}
 
-	@RequestMapping("/buLogin")
+	@RequestMapping("/login")
 	public String buLogin(BusinessDTO dto, HttpServletRequest req, RedirectAttributes rttr) {
-		System.out.println("/buLogin");
+		System.out.println("/login");
 //		System.out.println(dto.getBu_id());
 //		System.out.println(dto.getBu_pwd());
 
@@ -67,9 +66,9 @@ public class BuMemberController {
 		
 		BusinessDTO login = service.buLogin(dto);
 
-		// �ش��ϴ� ȸ���� �ִ��� ����
+		// 占쌔댐옙占싹댐옙 회占쏙옙占쏙옙 占쌍댐옙占쏙옙 占쏙옙占쏙옙
 		if (login == null) {
-			// ȸ�� ������ ���ǿ� ����ְ� ������ model�� ���� �޼���
+			// 회占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占실울옙 占쏙옙占쏙옙斂占� 占쏙옙占쏙옙占쏙옙 model占쏙옙 占쏙옙占쏙옙 占쌨쇽옙占쏙옙
 			session.setAttribute("buLogin", null);
 			rttr.addFlashAttribute("msg", false);
 
@@ -80,20 +79,20 @@ public class BuMemberController {
 			System.out.println("login success");
 		}
 
-		// jsp���� c:if�� ���� page ��ȭ �־����
-		return "redirect:/";
+		// jsp占쏙옙占쏙옙 c:if占쏙옙 占쏙옙占쏙옙 page 占쏙옙화 占쌍억옙占쏙옙占�
+		return "redirect:/buMember/loginForm";
 	}
 	
-	//�α׾ƿ�
-	@RequestMapping("/buLogout")
+	//占싸그아울옙
+	@RequestMapping("/logout")
 	public String buLogout(HttpSession session) {
 		session.invalidate();
 		
-		return "redirect:/";
+		return "redirect:/buMember/loginForm";
 	}
 	
-	//id����
-	@RequestMapping("/buIdCheck")
+	//id占쏙옙占쏙옙
+	@RequestMapping("/idCheck")
 	public String buIdCheck(BusinessDTO dto, RedirectAttributes rttr) {
 		String bu_id = dto.getBu_id();
 		
@@ -107,7 +106,7 @@ public class BuMemberController {
 			rttr.addFlashAttribute("checkMsg", true);
 		}
 		
-		return "redirect:/bu/member/buRegisterForm";
+		return "redirect:/buMember/registerForm";
 	}
 
 }

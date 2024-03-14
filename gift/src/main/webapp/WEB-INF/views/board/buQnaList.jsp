@@ -26,7 +26,7 @@
 			<tr>
 				<td>${qna.m_idx }</td>
 				<td>${qna.qu_select }</td>
-				<td><a href="/bu/board/buQnaDetail?qna_no=${qna.qna_no }">${qna.qu_title }</a></td>
+				<td><a href="/buBoard/qnaDetail?qna_no=${qna.qna_no }">${qna.qu_title }</a></td>
 				<td>m_idx로 member 가져오기</td>
 				<td>${qna.regidate }</td>
 			</tr>

@@ -11,9 +11,16 @@ public class Common {
 	}
 	
 	// 아이템 폴더...
-		public static class Item {
-			public static final String VIEW_PATH = "/WEB-INF/views/item/";
-		}
+	public static class Business {
+		public final static String VIEW_PATH = "/WEB-INF/views/bu";
+		public final static String BOARD_VIEW_PATH = "/WEB-INF/views/board";
+		public final static String ITEM_VIEW_PATH = "/WEB-INF/views/item";
+	}
+	
+	// 아이템 폴더...
+	public static class Item {
+		public static final String VIEW_PATH = "/WEB-INF/views/item/";
+	}
 		
 	public static class Paying {
 		public static final String VIEW_PATH = "/WEB-INF/views/paying/";

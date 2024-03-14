@@ -13,10 +13,12 @@
 </head>
 <body>
 
-<form name="item" enctype="multipart/form-data" method="post" action="/buItem/insert">
+<form name="item" enctype="multipart/form-data">
+	<!--
 	<input type="hidden" name="category_no" value="00">
 	<input type="hidden" name="brand" value="00">
 	<input type="hidden" name="payment" value="00">
+	 -->
 	<div class="itemName">
 		상품명 : <input type="text" name="item_name">
 	</div>
@@ -33,10 +35,18 @@
 		상품 이미지 : <input type="file" name="item_image">
 	</div>
 	<div class="buttons">
-		<button id="register" type="submit">등록</button>
+		<button id="register" type="button">등록</button>
 		<button id="list" type="button">목록</button>
 		
 		<script>
+			formObj1 = $("form[name='item']");
+			
+			$("#register").on("click", function() {
+				formObj1.attr("method", "post");
+				formObj1.attr("action", "/buItem/insert");
+				formObj1.submit();
+			})
+		
 		</script>
 	</div>
 </form>

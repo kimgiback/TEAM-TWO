@@ -18,7 +18,7 @@
 		<!-- 쓴 정보 유지하는 기능 필요 -->
 		<script>
 			$("#toRegister").click(function(){
-				self.location="/bu/member/buRegisterForm";
+				self.location="/buMember/registerForm";
 			})
 		</script>
 	</p>
