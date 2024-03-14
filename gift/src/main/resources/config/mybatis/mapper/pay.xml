@@ -21,10 +21,9 @@ WHERE M.M_IDX = #{m_idx}
 	</update>
 					 
 <insert id="BuyingCheck" parameterType="item">
-    INSERT INTO PAY (M_IDX, ITEM_NO, CATEGORY_NO, ITEM_NAME, ITEM_PRICE, ITEM_INFO, ITEM_STOCK, BU_NO, BRAND, READHIT, PAYMENT)
+    INSERT INTO PAY (M_IDX, ITEM_NO, ITEM_NAME, ITEM_PRICE, ITEM_INFO, ITEM_STOCK, BU_NO, BRAND, READHIT, PAYMENT)
     VALUES (SEQ_M_IDX.NEXTVAL, 
-            #{item_no}, 
-            #{category_no}, 
+            #{item_no},  
             #{item_name},
             #{item_price}, 
             #{item_info},

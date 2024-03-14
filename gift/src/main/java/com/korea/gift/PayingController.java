@@ -59,9 +59,9 @@ public class PayingController {
 	    		 cartDTO.setItem_no(item_no);
 	    		 cartDTO.setM_idx(m_idx);
 	    		CartItemDTO ItemOne = wishCart_dao.cartOne(cartDTO);
-	    		System.out.println("cartDTO="+cartDTO);
+	    	
 	    		model.addAttribute("ItemOne", ItemOne);
-	    	System.out.println("ItemOne="+ItemOne);
+	 
 	    	}
 	    // cart에 담긴 정보가 없을 때 
 	    	if(res <= 0) {
@@ -92,7 +92,7 @@ public class PayingController {
 		map.put("payment", dto.getPayment());
 
 		int res = pay_dao.pay_info_update(map);
-		System.out.println("Res=" + res);
+		
 		String result = "";
 
 		if (res > 0) {
@@ -108,7 +108,7 @@ public class PayingController {
 	@ResponseBody
 	public String BuyingCheck(PayingDTO dto) {
 		int res = pay_dao.BuyingCheck(dto);
-		System.out.println("res=" + res);
+		System.out.println("Res=" + res);
 
 		if (res >= 0) {
 			return "[{'result':'yes'}]";
