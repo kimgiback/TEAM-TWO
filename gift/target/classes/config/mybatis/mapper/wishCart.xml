@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT c.m_idx, c.item_no, c.cart_quantity, i.item_name, i.brand, i.item_price, i.item_image
 		FROM ITEM i JOIN CART c
 		ON i.item_no = c.item_no
-		WHERE m_idx = #{m_idx} 
+		WHERE m_idx = #{m_idx}
 	</select>
 	
 	<!-- 장바구니, 상품 연결 : 상품 한 개 조회 -->
@@ -19,7 +19,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		JOIN CART c ON i.item_no = c.item_no
 		JOIN MEMBER m ON c.m_idx = m.m_idx
 		JOIN item_imagefile img ON i.item_no = img.item_no
-		WHERE m_idx = #{m_idx} AND c.item_no = #{item_no}
 	</select>
  		
 	<!-- 장바구니 상품 수량 -1 -->

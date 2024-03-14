@@ -13,6 +13,8 @@
 <script src="${pageContext.request.contextPath}/resources/js/httpRequest.js"></script>
 <script type="text/javascript">
 
+console.log(ItemOne);
+
 function card(paymentType) {
     var payment = paymentType;
     var item_no = document.querySelector('input[name="item_no"]').value;
@@ -128,10 +130,11 @@ function BuyingCheck() {
     		}
 		
 		function payitem(f) {
-			    
+			
 			f.submit();
 		}
-		
+
+
     </script>
 
 </head>
@@ -142,7 +145,7 @@ function BuyingCheck() {
 <form action="payitem" method="post" name="f">
 <div>
 	        <div class="container">
-		          <img src="${pageContext.request.contextPath}/resources/images/item/${ItemOne.img_name}.jpg" width="200" height="200" class="image">
+		          <img src="${pageContext.request.contextPath}/resources/images/item/${ItemOne.item_image}.jpg" width="200" height="200" class="image">
 		
 		    	<div class="text-container">
 		               <%-- <input type="hidden" name="payment" value="${ItemList.payment}"> --%>
@@ -155,7 +158,7 @@ function BuyingCheck() {
 		     	</div>
 	        </div>  
 </div>
-	
+</form>		
 	<table border="1">
 			<tr>
 				<td>결제 금액</td>
@@ -174,7 +177,7 @@ function BuyingCheck() {
 			</tr>
 			<tr>
 				<td colspan="2">결제 수단</td>
-				<td name="payment">${ItemOne.payment } </td>
+				<td><%-- ${DTO.payment } --%></td>
 			</tr>
 			<tr>
 				<td colspan="2">결제 금액</td>
@@ -191,6 +194,6 @@ function BuyingCheck() {
 		<input type="button" value="휴대전화" onclick="card('휴대전화')" class="button" name="phone_button">
 		<input type="button" value="삼성페이" onclick="card('삼성페이')" class="button" name="pay_button">
 		<input type="button" value="계좌이체" onclick="card('계좌이체')" class="button" name="send_button">
-</form>	
+
 </body>
 </html>

@@ -27,11 +27,10 @@ public class ItemDTO {
 	
 	private int readhit;
 	
-	private String img_name;
-	
 	//image file
-	private MultipartFile item_image;
-	//private String item_image;
+//	private MultipartFile item_image;
+	private String item_image;
 	
+	private MultipartFile item_images;
 	
 }
