@@ -43,16 +43,16 @@ public class MainDAO {
 	}
 	
 	// 특정 카테고리 정렬
-	public List<ItemDTO> sortHitItemListCate(int cate_no) {
-		return sqlSession.selectList("main.sortHitItemList_cate", cate_no);
+	public List<ItemDTO> sortHitItemListCate(Map<String, Integer> pageMap) {
+		return sqlSession.selectList("main.sortHitItemList_cate", pageMap);
 	}
 	
-	public List<ItemDTO> sortAscItemListCate(int cate_no) {
-		return sqlSession.selectList("main.sortAscItemList_cate", cate_no);
+	public List<ItemDTO> sortAscItemListCate(Map<String, Integer> pageMap) {
+		return sqlSession.selectList("main.sortAscItemList_cate", pageMap);
 	}
 	
-	public List<ItemDTO> sortDescItemListCate(int cate_no) {
-		return sqlSession.selectList("main.sortDescItemList_cate", cate_no);
+	public List<ItemDTO> sortDescItemListCate(Map<String, Integer> pageMap) {
+		return sqlSession.selectList("main.sortDescItemList_cate", pageMap);
 	}
 	
 }

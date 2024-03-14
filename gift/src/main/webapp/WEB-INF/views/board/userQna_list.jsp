@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/board/userQna_list.css?after">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/board/userQna_list.css?after">
 <script src="resources/js/board/userQna_list.js"></script>
 </head>
 <body>
@@ -51,8 +51,10 @@
                         </thead>
                         <tbody>                                                    
 							<c:choose>
-			
 								<c:when test="${empty m_idx}">
+								
+								</c:when>			
+								<c:when test="${!empty m_idx}">
 									<c:forEach var="userQnaDTO" items="${list}">
 										<tr>
 											<td class="no">${userQnaDTO.qna_no}</td>

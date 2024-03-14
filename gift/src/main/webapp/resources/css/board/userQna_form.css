@@ -4,8 +4,8 @@ ul, ol, li{list-style: none;}
 a{text-decoration: none; color: #444;}
 
 /* main */
-main{border: 1px solid red; width: 100%; padding-bottom: 50px;}
-.contents{width: 100%; padding: 70px 0;}
+main{width: 100%; padding-bottom: 0px;}
+.contents{width: 100%; padding: 70px 0 30px 0;}
 .inner{width: 1170px; margin: 0 auto;}
 
 /* sub-menu */
@@ -36,13 +36,16 @@ main{border: 1px solid red; width: 100%; padding-bottom: 50px;}
 }
 .inquiryBox .inquiry th {color: #252525; background-color: rgb(244, 236, 244);}
 .inquiryBox .inquiry td {color: #666;}
-.inquiryBox .inquiry select {font-size: 13px; height: 22px; }
-.inquiryBox .inquiry select.selType01 {padding-left: 2px; color: #666; border: 1px solid #c5c5c5; }
+.inquiryBox .inquiry select {font-size: 13px; height: 22px;}
+.inquiryBox .inquiry select.selType01 {padding-left: 2px; color: #666; border: 1px solid #c5c5c5;}
 .inquiryBox .inquiry .type170 {width: 170px;}
-.inquiryBox .inquiry input {height: 23px; border: 1px solid #bbb; }
-.inquiryBox .inquiry .writer {width: 170px; height: 23px; border: 1px solid #bbb; color: #666;}
-.inquiryBox .inquiry .phoneNo {width: 220px; height: 23px; border: 1px solid #bbb; color: #666;}
+.inquiryBox .inquiry input {height: 23px; border: 1px solid #bbb;}
+.inquiryBox .inquiry .writerBox {width: 170px; height: 23px; border: 1px solid #bbb; color: #666; font-size: 13pt; }
+.inquiryBox .inquiry .writerBox > span{algin-items: center; vertical-align: middle; margin: 0 4px;}
+.inquiryBox .inquiry .phoneNoBox {width: 220px; height: 23px; border: 1px solid #bbb; color: #666; font-size: 13pt;}
+.inquiryBox .inquiry .phoneNoBox > span{algin-items: center; vertical-align: middle; margin: 0 4px;}
 .inquiryBox table tbody .inquiry_contents th{vertical-align: middle;} 
+
 
 .inquiryBox .inquiry textarea {
     text-align: left; line-height: 40px; font-size: 16px; width: 790px; 
@@ -73,9 +76,9 @@ main{border: 1px solid red; width: 100%; padding-bottom: 50px;}
 .agreeCheckInfo{line-height: 20px; font-size: 13px; font-weight: bold;}
 
 /* submit or cancel */
-.btnBox{text-align: center; padding: 20px 0; border-top: 1px solid rgb(207, 205, 205); }
+.btnBox{text-align: center; padding: 50px 0 20px 0; border-top: 1px solid rgb(207, 205, 205); margin-bottom: 10px;}
 .registry{display: inline-block; height: 38px; width: 120px; font-weight: bold; border: 1px solid black; border-radius: 3px; margin: 0 10px; cursor: pointer;}
 .sign{background-color: rgb(93, 10, 188); color: white;}
 .cancel{background-color: rgb(244, 243, 243); color: black;}
-.sign:hover{background-color: rgb(215, 204, 228); color: rgb(40, 69, 5);}
+.sign:hover{background-color: rgb(215, 204, 228); color: rgb(40, 69, 5);} 
 .cancel:hover{background-color: rgb(83, 82, 82); color: white;}

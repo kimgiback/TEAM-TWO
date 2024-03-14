@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +30,7 @@ public class MainController {
 	private final MainDAO mainDAO;
 	
 	@Autowired
-	HttpServletRequest request;
+	HttpSession session;
 	
 	@GetMapping
 	public String mainPage(Model model) {
@@ -38,7 +38,7 @@ public class MainController {
 		List<CategoryDTO> cateInfo = mainDAO.categoryInfo();
 		
 		// 조회수 세션 제거
-		request.getSession().removeAttribute("view");
+		session.removeAttribute("view");
 	
 		model.addAttribute("cateInfo", cateInfo);
 		
@@ -58,8 +58,6 @@ public class MainController {
 	    if (page != null) {
 	        nowPage = page;
 	    }
-	    System.out.println(sort);
-	    System.out.println(page);
 
 	    int start = (nowPage -1) * Common.Main.BLOCKLIST + 1;
 	    int end = start + Common.Main.BLOCKLIST - 1;
@@ -67,13 +65,14 @@ public class MainController {
 	    Map<String, Integer> pageMap = new HashMap<>();
 	    pageMap.put("start", start);
 	    pageMap.put("end", end);
+	    pageMap.put("cate_no", cate_no);
 	    
 		Map<String, Object> map = new HashMap<>();
 		List<ItemDTO> itemList;
 		Integer itemCount;
 		
 		// 조회수 세션 제거
-		request.getSession().removeAttribute("view");
+		session.removeAttribute("view");
 		
 		if (cate_no == 0) {
 			itemCount = mainDAO.itemCountAll();
@@ -94,26 +93,25 @@ public class MainController {
 			
 			switch (sort) {
 			case "priceAsc" :
-				itemList = mainDAO.sortAscItemListCate(cate_no);
+				itemList = mainDAO.sortAscItemListCate(pageMap);
 				break;
 			case "priceDesc" :
-				itemList = mainDAO.sortDescItemListCate(cate_no);
+				itemList = mainDAO.sortDescItemListCate(pageMap);
 				break;
 			default :
-				itemList = mainDAO.sortHitItemListCate(cate_no);
+				itemList = mainDAO.sortHitItemListCate(pageMap);
 				break;
 			}
 		}
 		
-		//페이지 메뉴 생성하기
 	    String pageMenu = MainPage.getPaging(
 	            "list_ajax",
-	            nowPage, //현재 페이지 번호
-	            itemCount, //전체 게시물 수
-	            Common.Main.BLOCKLIST, //한 페이지에 표기할 게시물 수
+	            nowPage,
+	            itemCount,
+	            Common.Main.BLOCKLIST,
 	            Common.Main.BLOCKPAGE,
 	            cate_no,
-	            sort); //페이지 메뉴 수
+	            sort);
 	    
 		map.put("count", itemCount);
 		map.put("list", itemList);

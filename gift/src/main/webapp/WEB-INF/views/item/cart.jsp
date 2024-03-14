@@ -1,4 +1,4 @@
-    <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/item/wishCart.css">
-<script src="resources/js/httpRequest.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/httpRequest.js"></script>
 <script type="text/javascript">
 	function qMinus(item_no) {
 		
@@ -32,14 +32,12 @@
 			let data = xhr.responseText;
 			let json = (new Function('return' + data))();
 			
-			console.log(json.result);
-			
 			if (json.result == 'one') {
 				return;
 			}
 			
 			if (json.result == 'over') {
-				alert('재고');
+				alert('재고 초과');
 				return;
 			}
 			
@@ -114,12 +112,8 @@
 <body>
   <div id="wrapper">
 
-    <header>
-        header
-        <input type="button" value="로고" onclick="location.href='${pageContext.request.contextPath}'">
-	    <input type="button" value="장바구니" onclick="location.href='${pageContext.request.contextPath}/cartList'">
-	    <input type="button" value="찜" onclick="location.href='${pageContext.request.contextPath}/wishList'">
-	</header>
+	<!-- 헤더영역 -->
+	<jsp:include page="../commons/header.jsp"></jsp:include>
 
     <section id="sub-product" class="section">
       <div id="wishCartArea"> <!-- subcontents -->
@@ -162,7 +156,7 @@
                         <ul>
                           <!-- 이미지 -->
                           <li class="pimgArea">
-                            <img src="${pageContext.request.contextPath}/resources/images/item/${list.item_image}.jpg">
+                            <img src="${pageContext.request.contextPath}/resources/images/item/${list.img_name}">
                           </li>
                           <!-- 상품명 -->
                           <li class="tit">
@@ -230,11 +224,6 @@
 
     </section>
   </div>
-
-    <footer>
-      footer
-    </footer>
-
 </body>
 <script type="text/javascript">
 
@@ -249,7 +238,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		checkbox.checked = checkAll.checked;
 		
 		checkbox.addEventListener("change", function() {
-			console.log(checkbox.value);
 			updateCheckAll();
 			updateTotalPrice();
 		});

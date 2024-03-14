@@ -4,12 +4,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="p">
 
-<!-- 구매 상품정보   -->
-	<select id="payitem" parameterType="int"> 
-SELECT I.ITEM_NO, IT.IMG_NAME, I.ITEM_NAME, I.ITEM_PRICE, I.ITEM_INFO, I.ITEM_IMAGE, I.BRAND, M.PAYMENT
+<!-- 결제 상품정보   -->
+	<select id="payitem" parameterType="java.util.HashMap"> 
+SELECT I.ITEM_NO, I.ITEM_NAME, I.ITEM_PRICE, I.ITEM_INFO, I.ITEM_IMAGE, I.BRAND, M.PAYMENT
 FROM ITEM I
 LEFT JOIN PAY P ON I.ITEM_NO = P.ITEM_NO
-LEFT JOIN ITEM_IMAGEFILE IT ON I.ITEM_NO = IT.ITEM_NO
 LEFT JOIN MEMBER M ON P.PAYMENT = M.PAYMENT
 WHERE M.M_IDX = #{m_idx}
 	</select>
@@ -17,13 +16,13 @@ WHERE M.M_IDX = #{m_idx}
 	
 	<!-- 결제 수단 업데이트 -->
 	<update id="paying_info_update" parameterType="java.util.HashMap">
-		UPDATE MEMBER SET PAYMENT=#{payment}
+		UPDATE MEMBER SET PAYMENT=#{payment} WHERE M_IDX=#{m_idx}
 	</update>
 					 
 	<!-- 결제하기 -->  
 	<insert id="BuyingCheck" parameterType="item" >
 INSERT INTO PAY
-(M_IDX, ITEM_NO, CATEGORY_NO, ITEM_NAME, ITEM_PRICE, ITEM_INFO, ITEM_STOCK, BU_NO, BRAND, READHIT, PAYMENT)
+(M_IDX, ITEM_NO, CATEGORY_NO, ITEM_NAME, ITEM_PRICE, ITEM_INFO, ITEM_STOCK, BU_NO, ITEM_IMAGE, BRAND, READHIT, PAYMENT)
 VALUES(SEQ_M_IDX.NEXTVAL, 
 		ITEM_NO=#{item_no}, 
 		CATEGORY_NO=#{category_no}, 
@@ -31,7 +30,8 @@ VALUES(SEQ_M_IDX.NEXTVAL,
  		ITEM_PRICE=#{item_price}, 
  		ITEM_INFO=#{item_info},
   		ITEM_STOCK=#{item_stock},
-   		BU_NO=#{bu_no},  
+   		BU_NO=#{bu_no}, 
+  		ITEM_IMAGE=#{item_image}, 
    		BRAND=#{brand},
    		READHIT=#{readhit},						
 		PAYMENT=#{payment}
