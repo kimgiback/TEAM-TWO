@@ -4,6 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="wishCart">
 
+
 	<!-- 장바구니, 상품 연결 : 리스트 -->
 	<select id="cartItem_list" parameterType="Integer" resultType="CartItemDTO">
 		SELECT c.m_idx, c.item_no, c.cart_quantity, i.item_name, i.brand, i.item_price, i.item_image
