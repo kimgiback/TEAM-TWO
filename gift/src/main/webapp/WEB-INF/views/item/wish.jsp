@@ -1,4 +1,4 @@
-    <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -12,7 +12,6 @@
 <script type="text/javascript">
 
 function del(item_no) {
-	
 	let url = "wishList_del_ajax";
 	let param = "item_no=" + item_no;
 	
@@ -21,13 +20,10 @@ function del(item_no) {
 
 function delRs() {
 	if (xhr.readyState == 4 && xhr.status == 200) {
-		
 		let data = xhr.responseText;
 		let json = (new Function('return' + data))();
 		
 		if (json.result == 'del_success') {
-			alert('삭제 성공');
-			
 			let deletedRow = document.getElementById("tbody_tr" + json.item_no);
 			deletedRow.remove();
 			
@@ -37,18 +33,13 @@ function delRs() {
 		alert('삭제 실패');
 	}
 }
-
 </script>
 </head>
 <body>
  <div id="wrapper">
 
-    <header>
-        header
-        <input type="button" value="로고" onclick="location.href='${pageContext.request.contextPath}'">
-	    <input type="button" value="장바구니" onclick="location.href='${pageContext.request.contextPath}/cartList'">
-	    <input type="button" value="찜" onclick="location.href='${pageContext.request.contextPath}/wishList'">
-    </header>
+    <!-- 헤더영역 -->
+	<jsp:include page="../commons/header.jsp"></jsp:include>
 
     <section id="sub-product" class="section">
       <div id="wishCartArea"> 
@@ -77,7 +68,7 @@ function delRs() {
                         <ul>
                           <!-- 이미지 -->
                           <li class="pimgArea">
-                            <img src="${pageContext.request.contextPath}/resources/images/item/${list.item_image}.jpg">
+                            <img src="${pageContext.request.contextPath}/resources/images/item/${list.img_name}">
                           </li>
                           <!-- 상품명 -->
                           <li class="tit">
@@ -118,10 +109,6 @@ function delRs() {
 
     </section>
   </div>
-
-    <footer>
-      footer
-    </footer>
 </body>
 </html>
     

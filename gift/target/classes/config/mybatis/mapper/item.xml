@@ -4,21 +4,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="item">
 
-	<!-- 상품 상세 -->
-	<select id="item_detail" parameterType="Integer" resultType="item">
-		SELECT *
-		FROM ITEM
-		WHERE ITEM_NO = #{item_no}
-	</select>
-	
-	 <!-- 조회수 증가 -->
-  <select id="readhit_update" parameterType="Integer">
-		UPDATE ITEM SET readhit = readhit + 1
-		WHERE item_no = #{item_no}
-	</select>
-	
-
-
+<!--  상품 상세  -->
+<select id="item_detail" parameterType="Integer" resultType="item"> SELECT i.*, img.IMG_NAME FROM ITEM i JOIN ITEM_IMAGEFILE img ON i.item_no = img.item_no WHERE i.item_no = #{item_no} </select>
+<!--  조회수 증가  -->
+<select id="readhit_update" parameterType="Integer"> UPDATE ITEM SET readhit = readhit + 1 WHERE item_no = #{item_no} </select>
 	
 </mapper>
 

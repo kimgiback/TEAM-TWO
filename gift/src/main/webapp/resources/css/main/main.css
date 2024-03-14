@@ -1,17 +1,5 @@
 @charset "UTF-8";
 
-header {
-	height: 150px;
-	text-align: center;
-	background-color: #eee;
-}
-
-footer {
-	height: 150px;
-	text-align: center;
-	background-color: #eee;
-}
-
 * {margin: 0; padding: 0; box-sizing: border-box;}
 ul, ol, li {list-style: none;}
 a {text-decoration: none; color: #222;}
@@ -27,11 +15,99 @@ a {text-decoration: none; color: #222;}
 	padding: 10px;
 }
 
+.pageNavi {
+	clear: both;
+	margin: 15px 0 15px 0;
+	padding: 5px 0 5px 0;
+}
+
+.paging {
+  width: 100%;
+  text-align: center;
+  height: 25px;
+}
+
+.paging a.arrow {
+  background-color: #fff;
+}
+
+.paging a {
+  display: inline-block;
+  height: 23px;
+  line-height: 22px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  text-decoration: none;
+  vertical-align: top;
+  overflow: hidden;
+  margin: 0 2px 0 2px;
+}
+
+.paging a.prev span {
+  background-position: -22px 8px;
+}
+
+.paging a.next span {
+  background-position: -348px 8px;
+}
+
+.paging a.arrow span {
+  background-image: url('../../images/paging_arrow.gif');
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  width: 23px;
+  padding: 0;
+}
+
+.paging a span {
+  display: block;
+  height: 23px;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: normal;
+  color: #555;
+  min-width: 8px;
+  padding: 0 8px 0 7px;
+  letter-spacing: -1px;
+}
+
+
+/* 광고 swiper */
+.swiper {
+  height: 100%;
+  width: 100%;
+}
+
+.swiper .swiper-lazy {
+	height: 100%;
+	width: 100%;
+}
+
+.swiper .swiper-pagination-bullet {
+  background-color: white;
+  opacity: 0.6;
+}
+
+.swiper .swiper-pagination-bullet-active {
+  background-color: white;
+  opacity: 0.9;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after{
+  color: white; 
+  opacity: 0.6;
+}
+
 /* -------- 메인 페이지 -------- */
 
 #main-banner {
 	height: 400px;
-	border: 1px solid #eee;
 }
 
 #main-product {
