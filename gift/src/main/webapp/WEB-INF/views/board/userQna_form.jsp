@@ -6,8 +6,45 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/board/userQna_form.css?after">
-<script src="resources/js/board/userQna_form.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/board/userQna_form.css?after">
+<script type="text/javascript">
+	function send_check(noLogin){
+		let f = document.f;    	
+		let title = f.qu_title;
+		let content = f.qu_content;			
+		let isChecked = document.getElementById('agreeCheck').checked;	
+		
+		if(noLogin){
+			alert('1:1 문의는 로그인 후 이용해 주세요');
+			location.reload();
+			return;
+		}
+		
+		if(title.value == ''){
+			alert('제목을 입력해주세요');
+			return;
+		}
+		
+		if(content.value == ''){
+			alert('내용을 한글자라도 입력해주세요');
+			return;
+		}	
+		
+		if(!isChecked) {
+			alert("개인정보 수집 및 이용 동의에 체크해 주세요");
+			return;
+		}
+		
+		if(isChecked) {
+			if(!confirm('1:1 문의글을 등록하시겠습니까?')){
+				location.reload();
+				return;
+			}else {
+	    		f.submit();
+	    	}     
+	    } 
+	}
+</script>
 </head>
 <body>
 <%@ include file="../commons/header.jsp"%> 
@@ -39,7 +76,7 @@
                                 <tr>
                                     <th>질문 유형 선택</th>
                                     <td>
-                                        <select name="typeChoice" id="typeChoice" class="selType01 type170">
+                                        <select name="qu_select" id="typeChoice" class="selType01 type170">
                                             <option value="기타">기타</option>                                                                                       
                                             <option value="사용하기">사용하기</option>                                                            
                                             <option value="결제">결제</option>                                
@@ -51,33 +88,27 @@
                                 <tr>
                                     <th>작성자 이름</th>
                                     <td>
-	                                    <div class="writerBox">
-                                    		<c:forEach var="dto" items="${memberDTO}">   
-	                                    		<input type="hidden" name="writer" id="writer" value="${dto.m_name}">
-												${dto.m_name}
-	                                    	</c:forEach>                                                                    
+	                                    <div class="writerBox">                                 		                               		
+											<span>${memberDTO.m_name}</span>	                                    	                                                                    
 	                                    </div> 
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>휴대폰 번호</th>
                                     <td>
-	                                    <div class="phoneNoBox">
-                                    		<c:forEach var="dto" items="${memberDTO}">
-	                                    		<input type="hidden" name="phoneNo" id="phoneNo" value="${dto.m_phone}">
-												${dto.m_phone}
-	                                    	</c:forEach>                       
+                                    	<div class="phoneNoBox">                                   		                               		
+											<span>${memberDTO.m_phone}</span>	                                               
 	                                    </div>   
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>제목</th>
-                                    <td><input type="text" class="w810" value="" id="title" name="title" size="30" placeholder="제목을 입력하세요(30자 내외)"></td>
+                                    <td><input type="text" class="w810" value="" id="title" name="qu_title" size="30" placeholder="제목을 입력하세요(30자 내외)"></td>
                                 </tr>
                                 <tr class="inquiry_contents">
                                     <th>내용</th>
                                     <td>
-                                        <textarea id="content" name="content" class=""></textarea>
+                                        <textarea id="content" name="qu_content" class=""></textarea>
                                     </td>
                                 </tr>
                             </tbody>
@@ -119,7 +150,7 @@
                         <div>
                             <ul>
                                 <li>
-                                    <p class="agreeCheckInfo"><input type="checkbox" name="agreeCheck" id="agreeCheck" value="Y"><a>개인정보 수집 및 이용에 동의합니다.</a></p>
+                                    <p class="agreeCheckInfo"><input type="checkbox" name="term_check" id="agreeCheck" value="Y"><a>개인정보 수집 및 이용에 동의합니다.</a></p>
                                 </li>
                                 <li>
                                     <p class="agreeCheckInfo"><a>gift에서 위와 같이 개인정보를 수집, 이용하는 것에 대해 거부하실 수 있으며, 거부 시 1:1 문의가 불가합니다</a></p>

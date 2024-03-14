@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/commons/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/commons/header.css">
 </head>
 <body>
     <header>

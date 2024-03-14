@@ -1,30 +1,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"[]>
 <mapper namespace="buItem">
-
- <select id="itemList" resultType="ItemDTO">
+  <select id="itemList" resultType="ItemDTO">
 select * from item order by item_no
 </select>
-
- <select id="itemOne" resultType="ItemDTO" parameterType="int">
+  <select id="itemOne" resultType="ItemDTO" parameterType="int">
 select * from item where item_no=#{item_no}
 </select>
-
- <insert id="insert" parameterType="ItemDTO">
+  <insert id="insert" parameterType="ItemDTO">
  insert into item values(seq_item_no.nextval, #{category_no},
  #{item_name}, #{item_price}, #{item_info}, #{item_stock},  #{bu_no},
- 00, #{brand}, 00)
+ 00, #{brand}, #{payment})
 </insert>
- 
- <insert id="insertItemImage" parameterType="ItemImagefileDTO">
+  <insert id="insertItemImage" parameterType="ItemImagefileDTO">
  insert into item_imagefile values(#{img_no}, #{item_no}, #{img_name})
 </insert>
-
- <update id="update" parameterType="ItemDTO"></update>
- 
- <delete id="delete" parameterType="int"></delete>
- 
- <!-- cate select -->
- <select id="select_category" resultType="CategoryDTO" parameterType="String">
- select * from category where category_name=#{category_name}
- </select>
+  <update id="update" parameterType="ItemDTO"></update>
+  <delete id="delete" parameterType="int"></delete>
 </mapper>
