@@ -14,10 +14,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 장바구니, 상품 연결 : 상품 한 개 조회 -->
 	<select id="cartItem_One" parameterType="CartDTO" resultType="CartItemDTO">
-		SELECT c.m_idx, c.item_no, c.cart_quantity, i.item_name, i.brand, i.item_price, img.img_name
-		FROM ITEM i JOIN CART c
-		ON i.item_no = c.item_no
-		join item_imagefile img ON i.item_no = img.item_no
+		SELECT c.m_idx, c.item_no, c.cart_quantity, i.item_name, i.brand, i.item_price, img.img_name, m.payment
+		FROM ITEM i 
+		JOIN CART c ON i.item_no = c.item_no
+		JOIN MEMBER m ON c.m_idx = m.m_idx
+		JOIN item_imagefile img ON i.item_no = img.item_no
 		WHERE m_idx = #{m_idx} AND c.item_no = #{item_no}
 	</select>
  		

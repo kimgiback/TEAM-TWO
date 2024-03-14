@@ -17,7 +17,7 @@ WHERE M.M_IDX = #{m_idx}
 	
 	<!-- 결제 수단 업데이트 -->
 	<update id="paying_info_update" parameterType="java.util.HashMap">
-		UPDATE MEMBER SET PAYMENT=#{payment}
+		UPDATE MEMBER SET PAYMENT=#{payment} WHERE M_IDX=#{m_idx}
 	</update>
 					 
 	<!-- 결제하기 -->  
