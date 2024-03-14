@@ -22,7 +22,7 @@ WHERE M.M_IDX = #{m_idx}
 					 
 	<!-- 결제하기 -->  
 	<insert id="BuyingCheck" parameterType="item" >
-INSERT IGNORE INTO PAY
+INSERT INTO PAY
 (M_IDX, ITEM_NO, CATEGORY_NO, ITEM_NAME, ITEM_PRICE, ITEM_INFO, ITEM_STOCK, BU_NO, BRAND, READHIT, PAYMENT)
 VALUES(SEQ_M_IDX.NEXTVAL, 
 		ITEM_NO=#{item_no}, 
