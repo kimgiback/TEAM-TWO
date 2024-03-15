@@ -52,7 +52,7 @@ public class buItemController {
 		String webPath = "/resources/images/item";
 		String savePath= request.getServletContext().getRealPath(webPath);
 		String filename = UUID.randomUUID().toString();
-		MultipartFile photo = dto.getItem_images();
+		MultipartFile photo = dto.getItem_image();
 		
 		//String�� integer��
 		dto.setItem_price((int)dto.getItem_price());
