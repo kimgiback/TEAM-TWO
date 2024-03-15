@@ -2,15 +2,15 @@ package util;
 
 public class Common {
 
-	// ¸ÞÀÎ...
+	// ï¿½ï¿½ï¿½ï¿½...
 	public static class Main {
 		public static final String VIEW_PATH = "/WEB-INF/views/main/";
-		public final static int BLOCKLIST = 3;
+		public final static int BLOCKLIST = 12;
 		public final static int BLOCKPAGE = 3;
 
 	}
 	
-	// ¾ÆÀÌÅÛ Æú´õ...
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½...
 		public static class Item {
 			public static final String VIEW_PATH = "/WEB-INF/views/item/";
 		}
