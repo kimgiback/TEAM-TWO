@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 					 
 	<!-- 결제하기 -->  
- <insert id="BuyingCheck" parameterType="java.util.HashMap">
+	<insert id="BuyingCheck" parameterType="java.util.HashMap">
    INSERT INTO PAY
    (M_IDX, ITEM_NO, ITEM_NAME, ITEM_PRICE, ITEM_INFO, BU_NO, BRAND, PAYMENT)
    VALUES
