@@ -152,7 +152,6 @@ function payitem(f) {
 	              		</a>
 	              	</c:when>
 	              </c:choose>
-
 	                <!-- 구매하기 -->
 	              <c:choose>
 	              <c:when test="${!empty m_idx}">
