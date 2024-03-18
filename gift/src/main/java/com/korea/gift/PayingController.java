@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +21,6 @@ import dao.WishCartDAO;
 import dto.CartDTO;
 import dto.CartItemDTO;
 import dto.MemberDTO;
-import dto.PayingDTO;
 import lombok.RequiredArgsConstructor;
 import util.Common;
 
@@ -107,10 +107,16 @@ public class PayingController {
 
 	@RequestMapping("BuyingCheck")
 	@ResponseBody
-	public String BuyingCheck(PayingDTO dto) {
-		int res = pay_dao.BuyingCheck(dto);
-		System.out.println("res=" + res);
-
+	public String BuyingCheck(@ModelAttribute MemberDTO memberDTO, @ModelAttribute CartItemDTO cartItemDTO) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("m_idx", memberDTO);
+		map.put("item_no", cartItemDTO);
+		
+		System.out.println("map="+map);
+		
+		int res = pay_dao.BuyingCheck(map);
+		String reuslt="";
+		
 		if (res >= 0) {
 			return "[{'result':'yes'}]";
 		} else {
