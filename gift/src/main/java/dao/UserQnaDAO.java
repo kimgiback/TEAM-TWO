@@ -15,24 +15,24 @@ public class UserQnaDAO {
 	
 	final SqlSession sqlSession;	
 	
-	// 사용자 회원의 이름, 전화번호 조회
+	// ����� ȸ���� �̸�, ��ȭ��ȣ ��ȸ ��ȸ
 	public MemberDTO memberSelectOne(int m_idx) {
 		MemberDTO memberDTO = sqlSession.selectOne("userQna.member_one", m_idx);
 		return memberDTO;
 	}
 	
-	// 사용자 qna(게시글) 추가
+	// ����� qna(�Խñ�) �߰�
 	public int insert(UserQnaDTO dto) {
 		return sqlSession.insert("userQna.qna_insert", dto);
 	}
 	
-	// 사용자 전체 qna(게시글) 조회
+	// ����� ��ü qna(�Խñ�) ��ȸ
 	public List<UserQnaDTO> selectList(int m_idx){		
 		List<UserQnaDTO> list = sqlSession.selectList("userQna.qna_list", m_idx);	
 		return list;
 	}
 	
-	// 전체 게시물 수 조회
+	// ��ü �Խù� �� ��ȸ
 	public int getRowTotal() {
 		int count = sqlSession.selectOne("userQna.board_count");
 		return count;

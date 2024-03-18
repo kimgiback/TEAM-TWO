@@ -26,8 +26,10 @@ final SqlSession sqlSession;
 		return Buyinglist;
 	}
 	// 결제하기 누르면 PAY테이블에 insert 됨
-	public int BuyingCheck(PayingDTO dto) {
-		int res = sqlSession.insert("p.BuyingCheck", dto);
+	public int BuyingCheck(Map<String, Object> map) {
+		
+		int res = sqlSession.insert("p.BuyingCheck", map);
+		
 		return res;
 	}
 	

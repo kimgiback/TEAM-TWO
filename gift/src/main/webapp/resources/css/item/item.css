@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+header {
+	height: 150px;
+	text-align: center;
+  background-color: #eee;
+}
+footer {
+	height: 150px;
+	text-align: center;
+  background-color: #eee;
+}
+
 * {margin: 0; padding: 0; box-sizing: border-box;}
 ul, ol, li {list-style: none;}
 a {text-decoration: none; color: #222;}
@@ -21,13 +32,11 @@ table {
 	border: 1px solid #eee;
 }
 
-#wishCartArea {
-	margin-top: 15px;
-}
+
 /* -------- 상품 상세 페이지 -------- */
 
 .detailInner {
-display: inline-block;
+	display: inline-block;
   width: 100%;
 }
 

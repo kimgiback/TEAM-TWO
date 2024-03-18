@@ -66,10 +66,9 @@ public class MemberDAO {
 		
 		
 	}
-
-
 	
 	
+
 }
 
     

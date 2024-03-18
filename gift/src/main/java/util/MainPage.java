@@ -38,12 +38,12 @@ public class MainPage {
         // 현재 블록의 마지막 페이지 구하기
         endPage = startPage + blockPage -1;
 
-        // 현재 블록의 마지막 페이지가 전체 페이지 수보다 크면 마지막 페이지 값 변경
+        // 현재 블록의 마지막 페이지가 전체 페이지 수보다 크면 마지막 페이지 값을 변경
         if (endPage > totalPage) {
             endPage = totalPage;
         }
 
-        // 마지막 페이지가 전체 페이지보다 작을 경우 다음 페이징이 적용될 수 있도록 값 설정
+        // 마지막 페이지가 전체 페이지보다 작을 경우 다음 페이징이 적용될 수 있도록
         if (endPage < totalPage) {
             isNextPage = true;
         }
@@ -58,25 +58,27 @@ public class MainPage {
 
         // 이전 페이지 링크 생성
         if (isPrevPage) { 
-        	sb.append("<a href=\"javascript:;\" class=\"prev arrow\" onclick='sort(\"").append(sort).append("\", ").append(startPage - 1).append(")'><span></span></a>");
-        	} else {
-        	sb.append("<a href=\"javascript:;\" class=\"prev arrow\"><span></span></a>");
-        	}
+            sb.append("<a href='").append(pageURL).append("?page=").append(startPage - 1).append("&sort=").append(sort).append("'>◀</a>");
+        } else {
+            sb.append("◀");
+        }
+        sb.append("|");
 
         // 페이지 목록 출력
         for (int i = startPage; i <= endPage; i++) {
-        	if (i == nowPage) { // 현재 선택된 페이지
-        		sb.append("<a href=\"javascript:;\" style=\"font-weight: bold; text-decoration: underline;\"><span>").append(i).append("</span></a>");
-        	} else { // 현재 페이지가 아닐 때
-        		sb.append("<a href=\"javascript:;\" onclick='sort(\"").append(sort).append("\", ").append(i).append(")'><span>").append(i).append("</span></a>");
-        	}
+            if (i == nowPage) { // 현재 선택된 페이지
+                sb.append("&nbsp; <b> <font color='#ff0000'>").append(i).append("</font></b>");
+            } else { // 현재 페이지가 아닐 때
+                sb.append("&nbsp; <li onclick='sort(\"").append("hit").append("\", ").append(i).append(")'>").append(i).append("</li>");
+            }
         }
+        sb.append("&nbsp;|");
 
         // 다음 페이지 링크 생성
         if (isNextPage) {
-        	sb.append("<a href=\"javascript:;\" class=\"next arrow\" onclick='sort(\"").append(sort).append("\", ").append(endPage + 1).append(")'><span></span></a>");
-        	} else {
-        	sb.append("<a href=\"javascript:;\" class=\"next arrow\"><span></span></a>");
+            sb.append("<a href='").append(pageURL).append("?page=").append(endPage + 1).append("&sort=").append(sort).append("'>▶</a>");
+        } else {
+            sb.append("▶");
         }
 
         return sb.toString();

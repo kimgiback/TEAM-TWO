@@ -1,7 +1,5 @@
 package dao;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 
 import dto.CartDTO;
@@ -13,12 +11,12 @@ public class ItemDAO {
 
 	final SqlSession sqlSession;
 	
-	// 상품 상세
+	// �긽�뭹 �긽�꽭
 	public ItemDTO selectOne(int item_no) {
 		return sqlSession.selectOne("item.item_detail", item_no);
 	}
 	
-	// 조회수 증가
+	// 議고쉶�닔 利앷�
 	public int readhitUpdate(int item_no) {
 		return sqlSession.update("item.readhit_update", item_no);
 	}

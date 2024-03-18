@@ -55,7 +55,7 @@
 			if(eval2[0]['data']=='null_data'){
 				alert("아이디나 비밀번호가 일치하지 않습니다.");
 			} else{
-				location.href='/gift/testpage';
+				location.href='/gift/';
 			}
 			
 			//메인화면으로 리다이렉트
@@ -194,7 +194,7 @@
 	            	<td id="member_login_top_bottom">
 	            		<input type="button" value="아이디 찾기" onclick="selectmidfor(this.form)" class="member_login_select_detail">
 	            		<input type="button" value="비밀번호 찾기" onclick="selectmpwdfor(this.form)" class="member_login_select_detail">
-	            		<input type="button" value="회원가입" onclick="location.href='/gift/mjoin'" class="member_login_select_detail">
+	            		<input type="button" value="회원가입" onclick="location.href='/gift/item/mjoin'" class="member_login_select_detail">
 	            	</td>
 	            </tr>
             </tbody>

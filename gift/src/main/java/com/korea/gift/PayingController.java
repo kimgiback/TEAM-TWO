@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,6 +20,7 @@ import dao.PayingDAO;
 import dao.WishCartDAO;
 import dto.CartDTO;
 import dto.CartItemDTO;
+import dto.ItemDTO;
 import dto.MemberDTO;
 import dto.PayingDTO;
 import lombok.RequiredArgsConstructor;
@@ -90,8 +92,7 @@ public class PayingController {
 		Map<String, Object> map = new HashMap<>();
 		map.put("item_no", item_no);
 		map.put("payment", dto.getPayment());
-		map.put("m_idx", session.getAttribute("m_idx"));
-		
+
 		int res = pay_dao.pay_info_update(map);
 		
 		String result = "";
@@ -107,11 +108,16 @@ public class PayingController {
 
 	@RequestMapping("BuyingCheck")
 	@ResponseBody
-	public String BuyingCheck(PayingDTO dto) {
-		int res = pay_dao.BuyingCheck(dto);
-		System.out.println("dto="+dto);
-		System.out.println("Res=" + res);
-
+	public String BuyingCheck(@ModelAttribute MemberDTO memberDTO, @ModelAttribute CartItemDTO cartItemDTO) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("m_idx", memberDTO);
+		map.put("item_no", cartItemDTO);
+		
+		System.out.println("map="+map);
+		
+		int res = pay_dao.BuyingCheck(map);
+		String reuslt="";
+		
 		if (res >= 0) {
 			return "[{'result':'yes'}]";
 		} else {
@@ -121,7 +127,3 @@ public class PayingController {
 	}
 
 }
-
-
-		
-		

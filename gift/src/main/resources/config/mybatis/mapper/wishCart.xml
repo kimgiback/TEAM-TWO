@@ -4,7 +4,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="wishCart">
 
-
 	<!-- 장바구니, 상품 연결 : 리스트 -->
 	<select id="cartItem_list" parameterType="Integer" resultType="CartItemDTO">
 		SELECT c.m_idx, c.item_no, c.cart_quantity, i.item_name, i.brand, i.item_price, i.item_image
@@ -100,32 +99,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="idxCount" parameterType="int" resultType="int">
 		select count(*) from cart WHERE m_idx = #{m_idx}
 	</select>
-
-<!--  장바구니, 상품 연결 : 리스트  -->
-<select id="cartItem_list" parameterType="Integer" resultType="CartItemDTO"> SELECT c.m_idx, c.item_no, c.cart_quantity, c.REGIDATE, i.item_name, i.brand, i.item_price, img.img_name FROM ITEM i JOIN CART c ON i.item_no = c.item_no JOIN ITEM_IMAGEFILE img ON i.item_no = img.item_no WHERE c.m_idx = #{m_idx} ORDER BY REGIDATE DESC </select>
-<!--  장바구니, 상품 연결 : 상품 한 개 조회  -->
-<select id="cartItem_One" parameterType="CartDTO" resultType="CartItemDTO"> SELECT c.m_idx, c.item_no, c.cart_quantity, i.item_name, i.brand, i.item_price, img.img_name FROM ITEM i JOIN CART c ON i.item_no = c.item_no JOIN ITEM_IMAGEFILE img ON i.item_no = img.item_no WHERE m_idx = #{m_idx} AND c.item_no = #{item_no} </select>
-<!--  장바구니 상품 수량 -1  -->
-<update id="cart_update_minus" parameterType="CartDTO"> UPDATE CART SET cart_quantity = cart_quantity - 1 WHERE m_idx = #{m_idx} AND item_no = #{item_no} </update>
-<!--  장바구니 상품 수량 +1  -->
-<update id="cart_update_plus" parameterType="CartDTO"> UPDATE CART SET cart_quantity = cart_quantity + 1 WHERE m_idx = #{m_idx} AND item_no = #{item_no} </update>
-<!--  장바구니 상품 삭제  -->
-<delete id="cart_delete" parameterType="java.util.Map">
-DELETE FROM CART WHERE m_idx = #{m_idx} AND item_no IN
-<foreach collection="items" item="item_no" open="(" close=")" separator=","> #{item_no} </foreach>
-</delete>
-<!--  상품 상세 - 장바구니 상품 존재여부 확인  -->
-<select id="cart_check" parameterType="CartDTO" resultType="CartDTO"> SELECT * FROM CART WHERE m_idx = #{m_idx} AND item_no = #{item_no} </select>
-<!--  상품 상세 - 장바구니 추가  -->
-<insert id="cart_add" parameterType="CartDTO"> INSERT INTO CART VALUES ( #{m_idx}, #{item_no}, #{cart_quantity}, sysdate ) </insert>
-<!--  찜, 상품 연결 : 리스트  -->
-<select id="wishItem_list" parameterType="Integer" resultType="WishItemDTO"> SELECT w.m_idx, w.item_no, w.REGIDATE, i.item_name, i.brand, i.item_price, img.img_name FROM ITEM i JOIN WISH w ON i.item_no = w.item_no JOIN ITEM_IMAGEFILE img ON i.item_no = img.item_no WHERE w.m_idx = #{m_idx} ORDER BY REGIDATE DESC </select>
-<!--  찜 상품 삭제  -->
-<delete id="wish_del" parameterType="WishDTO"> DELETE FROM WISH WHERE m_idx = #{m_idx} AND item_no = #{item_no} </delete>
-<!--  상품 상세 - 찜 상품 존재여부 확인  -->
-<select id="wish_check" parameterType="WishDTO" resultType="WishDTO"> SELECT * FROM WISH WHERE m_idx = #{m_idx} AND item_no = #{item_no} </select>
-<!--  상품 상세 - 찜 추가  -->
-<insert id="wish_add" parameterType="WishDTO"> INSERT INTO WISH VALUES ( #{m_idx}, #{item_no}, sysdate ) </insert>
-<insert id="cartItem" parameterType="CartDTO"> insert into cart(m_idx, item_no, cart_quantity)values ( #{m_idx}, #{item_no}, #{cart_quantity} ) </insert>
 
 </mapper>

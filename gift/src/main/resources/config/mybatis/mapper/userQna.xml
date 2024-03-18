@@ -6,9 +6,9 @@
 	</select>
   <!-- 사용자 qna(게시글) 추가 -->
   <insert id="qna_insert" parameterType="UserQnaDTO">
-		insert into QNA values( 
+		insert into QNA values(
+			seq_qna_no.nextVal, 
 			#{m_idx},
-			seq_qna_no.nextVal,
 			#{qu_title}, 
 			#{qu_content}, 
 			#{qu_select}, 			

@@ -1,4 +1,4 @@
-package com.korea.gift;
+   package com.korea.gift;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,19 +48,19 @@ public class buItemController {
 		
 		dto.setBu_no(writer_no);
 		
-		//占쏙옙占�, 占쏙옙占싹몌옙, dto占쏙옙 image 占쌨아울옙占쏙옙
+		//���, ���ϸ�, dto�� image �޾ƿ���
 		String webPath = "/resources/images/item";
 		String savePath= request.getServletContext().getRealPath(webPath);
 		String filename = UUID.randomUUID().toString();
 		MultipartFile photo = dto.getItem_image();
 		
-		//String占쏙옙 integer占쏙옙
+		//String�� integer��
 		dto.setItem_price((int)dto.getItem_price());
 		dto.setItem_stock((int)dto.getItem_stock());
 		
 		itemDAO.insert(dto);
 		
-		//imagefileDTO占쏙옙占쏙옙
+		//imagefileDTO����
 		ItemImagefileDTO fileDTO = new ItemImagefileDTO();
 		fileDTO.setImg_name(filename);
 		

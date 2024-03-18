@@ -1,5 +1,6 @@
 package com.korea.gift;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import dao.ItemDAO;
 import dao.WishCartDAO;
@@ -28,34 +30,32 @@ public class ItemController {
 	private final WishCartDAO wishCartDAO;
 	
 	@Autowired
-	HttpSession session;
+	HttpServletRequest request;
 	
 	@GetMapping("{item_no}")
 	public String itemDetailPage(@PathVariable("item_no") Integer item_no, Model model) {
-	
-		Integer m_idx = (Integer)session.getAttribute("m_idx");
+	/*
+		MemberDTO member = (MemberDTO)session.getAttribute("member");
+		int m_idx = member.getM_idx();
+	*/	
+		// 李쒖뿉 �긽�뭹�씠 議댁옱�븯�뒗吏� �솗�씤
+		WishDTO checkWishDTO = new WishDTO();
+		checkWishDTO.setM_idx(41); // m_idx
+		checkWishDTO.setItem_no(item_no);
 		
-		// 찜 아이콘
 		String wish = "no";
-
-		if (m_idx == null) {
-			wish = "null";	// 로그인 안되어있을 때
-		} else {
-			WishDTO checkWishDTO = new WishDTO();
-			checkWishDTO.setM_idx(m_idx);
-			checkWishDTO.setItem_no(item_no);
-			
-			WishDTO wishDTO = wishCartDAO.wishCheck(checkWishDTO);
-			
-			if (wishDTO != null) {
-				wish = "exists";
-			}
+		WishDTO wishDTO = wishCartDAO.wishCheck(checkWishDTO);
+		
+		if (wishDTO != null) {
+			wish = "exists";
 		}
 		
-		// 상품 상세
+		// �긽�뭹 �긽�꽭
 		ItemDTO item = itemDAO.selectOne(item_no);
 		
-		// 조회수 증가
+		HttpSession session = request.getSession();	
+		
+		// 議고쉶�닔 利앷�
 		String view = (String)session.getAttribute("view");
 		
 		if (view == null) {

@@ -3,8 +3,8 @@ body{margin: 0; padding: 0; box-sizing: border-box; height: 100%; display: flex;
 ul, ol, li{list-style: none;}
 a{text-decoration: none; color: #444;}
 
-main{min-height: 900px;}
-.content{width: 100%; padding: 70px 0;}
+main{height: 100%;}
+.content{width: 100%; padding: 120px 0;}
 .inner{width: 1170px; margin: 0 auto;}
 
 /* sub-menu */
@@ -23,19 +23,18 @@ main{min-height: 900px;}
 
 /* table */
 .board table{width: 100%; border-spacing: 2px; border-collapse: collapse; text-align: center; text-indent: initial;}
-.board table tr th{background-color: rgb(213, 224, 237); height: 42px; padding: 0.75rem;}
-.board table tr td{
-    background-color: #fbfbfb; border-bottom: 1px solid black; font: 16px 'inherit'; 
-    color: #232323; vertical-align: top; height: 40px; padding: 0.75rem 0.75rem 0 0.75rem;
-}
+.board table tr > th, td{height: 42px; padding: 0.75rem;}
+.board table tr th{background-color: rgb(213, 224, 237); border-top: 1px solid blue}
+.board table tr td{background-color: #fbfbfb; border-bottom: 1px solid black; font: 16px 'inherit'; color: #232323; vertical-align: top;}
+
 .board table col:nth-of-type(1){width: 100px;}
 .board table col:nth-of-type(2){width: 150px;}
 .board table col:nth-of-type(3){}
-.board table col:nth-of-type(4){width: 120px;}
-.board table col:nth-of-type(5){width: 200px;}
+.board table col:nth-of-type(4){width: 150px;}
+.board table col:nth-of-type(5){width: 150px;}
+.board table td col:nth-of-type(3){text-align: left;}
 
 .board table .subjectTd{text-align: left;}
-.board table .subjectTd .subjectBox > p{margin: 0;}
 .board table .subject:hover{text-decoration: underline; cursor: pointer; font-weight: bold;}
 .myInquiry{float: top; position: relative; display: none; width: 100%; margin-top: 10px; background-color: rgb(244, 241, 241);} 
 .myInquiry > p{font: inherit; font-size: 15px; letter-spacing: 0.1px;}   
