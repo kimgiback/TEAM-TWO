@@ -35,8 +35,10 @@ final SqlSession sqlSession;
 		return Buyinglist;
 	}
 	
-	public int BuyingCheck(PayingDTO dto) {
-		int res = sqlSession.update("p.BuyingCheck", dto);
+public int BuyingCheck(Map<String, Object> map) {
+		
+		int res = sqlSession.insert("p.BuyingCheck", map);
+		
 		return res;
 	}
 	
