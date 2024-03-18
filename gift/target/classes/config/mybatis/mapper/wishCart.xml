@@ -89,4 +89,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select count(*) from cart WHERE m_idx = #{m_idx}
 </select>
 
+<select id="cartSelectAll" parameterType="int" resultType="CartItemDTO">
+select * from cart
+</select>
+
 </mapper>

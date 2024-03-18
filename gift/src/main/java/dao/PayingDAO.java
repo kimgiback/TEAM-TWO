@@ -48,9 +48,5 @@ public int BuyingCheck(Map<String, Object> map) {
 		return memberDTO;
 	}
 	
-	public List<ItemDTO> pay_info(Map<String, Object> map) {
-		List<ItemDTO> Payinglist = sqlSession.selectList("p.payitem", map);
-		System.out.println("Payinglist3="+Payinglist);
-		return Payinglist;
-	}
+	
 }

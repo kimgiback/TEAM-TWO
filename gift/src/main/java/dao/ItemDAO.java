@@ -13,12 +13,12 @@ public class ItemDAO {
 
 	final SqlSession sqlSession;
 	
-	// 상품 상세
+	//하나씩 조회하기
 	public ItemDTO selectOne(int item_no) {
 		return sqlSession.selectOne("item.item_detail", item_no);
 	}
 	
-	// 조회수 증가
+	// 조회수 업데이트
 	public int readhitUpdate(int item_no) {
 		return sqlSession.update("item.readhit_update", item_no);
 	}

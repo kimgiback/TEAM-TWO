@@ -112,13 +112,13 @@ function BuyingCheck() {
                 	var json = (new Function('return' + data))();
                 	
             if (!confirm("정말 결제하시겠습니까? 진짜로??")) {
-                	  alert("결제를 취소하셨습니다. 홈 화면으로 돌아갑니다."); 
-                	  location.href = "payitem?item_no=" + item_no;
+                	  alert("결제를 취소하셨습니다.상품 화면으로 돌아갑니다."); 
+                	  return;
                 	    } 
             
             else if (json[0].result == "yes") {
                    	 alert("결제에 성공하셨습니다. 상품 화면으로 돌아갑니다.");
-                   	location.href="payitem";
+                   	location.href = "payitem?item_no=" + item_no;
                	 } 	else if(json[0].result="no") {
                    	 alert("결제에 실패하셨습니다. 결제화면으로 돌아갑니다.");
                    	location.href = "payitem?item_no=" + item_no;

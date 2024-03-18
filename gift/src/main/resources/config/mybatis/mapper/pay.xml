@@ -15,12 +15,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    (M_IDX, ITEM_NO, ITEM_NAME, ITEM_PRICE, ITEM_INFO, BU_NO, BRAND, PAYMENT)
    VALUES
    (#{m_idx},
-   #{item_no}, 
-   #{item_name}, 
-   #{item_price}, 
-   #{item_info},
-   #{bu_no}, 
-   #{brand},
+   #{itemDTO.item_no}, 
+   #{itemDTO.item_name}, 
+   #{itemDTO.item_price}, 
+   #{itemDTO.item_info},
+   #{itemDTO.bu_no}, 
+   #{itemDTO.brand},
    #{payment}
    )
 </insert>
