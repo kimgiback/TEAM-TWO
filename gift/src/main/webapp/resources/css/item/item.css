@@ -18,13 +18,16 @@ table {
 	width: 1040px;
 	margin: auto;
 	padding: 10px;
-	border: 1px solid #eee;
 }
 
 #wishCartArea {
 	margin-top: 15px;
 }
 /* -------- 상품 상세 페이지 -------- */
+
+#detailArea {
+	margin-top: 10px;
+}
 
 .detailInner {
 display: inline-block;
@@ -213,12 +216,12 @@ display: inline-block;
 
 /* 상품설명 */
 .detailInfo {
-  padding: 48px 0;
-  margin-top: 25px;
+  padding: 45px 0 35px 0;
+  margin-top: 80px;
   font-size: 16px;
   line-height: 1.75;
   letter-spacing: -0.8px;
-  border: 1px solid #eee;
+  border-top: 1px solid #eee;
 }
 
 .detailInfo Strong {
