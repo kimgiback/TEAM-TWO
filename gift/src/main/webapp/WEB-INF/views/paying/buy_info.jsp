@@ -44,7 +44,7 @@
 </style>
 </head>
 <body>
-<c:forEach var="dto" items="${Buyinglist }">
+<c:forEach var="dto" items="${cartbuyItem }">
 	<div class="button_container">
         <!-- 이미지 -->
         <img src="" alt="" class="item_image" style="background-image: url('이미지 주소');">

@@ -80,4 +80,9 @@ public class WishCartDAO {
 		public int selectCount(int m_idx) {
 			return sqlSession.selectOne("wishCart.idxCount", m_idx);
 		}
+		
+		//카트 전체 조회하기
+		public List<CartItemDTO> AllCartItem(int m_idx) {
+			return sqlSession.selectList("wishCart.cartSelectAll",m_idx);
+		}
 }

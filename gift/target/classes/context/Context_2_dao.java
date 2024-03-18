@@ -24,15 +24,12 @@ public class Context_2_dao {
 		public PayingDAO payingDAO(SqlSession sqlSession) {
 			return new PayingDAO(sqlSession);
 		}
-
-		//dao
+	
 		@Bean
 		public BuMemberDAO buMemberDAO(SqlSession sql) {
 			return new BuMemberDAO(sql);
 		}
 		
-		
-		//service
 		@Bean
 		public BuMemberService buMemberService(BuMemberDAO dao) {
 			return new BuMemberService(dao);

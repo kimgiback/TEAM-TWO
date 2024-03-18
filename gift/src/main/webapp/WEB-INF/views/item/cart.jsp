@@ -106,10 +106,22 @@
 			updateTotalPrice();
 		}
 	}
-	
+	//장바구니에서 구매하기를 눌렀을 때
+	function cartbuy() {
+		
+		var m_idx = document.querySelector('input[name="m_idx"]').value;
+			alert("결제페이지로 이동합니다.")
+			location.href = "cartbuy?m_idx=" + m_idx;
+			
+		}
+
+
+		
+
 </script>
 </head>
 <body>
+<input type="hidden" name="m_idx" value="${cartbuyItem.m_idx }">
   <div id="wrapper">
 
 	<!-- 헤더영역 -->
@@ -208,7 +220,7 @@
                 <li>
                   <a style="cursor: pointer;" class="btn_type09" onclick="buy()">
                     <span class="icogift"></span>
-                    <span class="txt">구매하기</span>
+                    <span class="txt"><input type="button" value="구매하기" onclick="cartbuy()"></span>
                   </a>
                 </li>
                 <li>
