@@ -55,7 +55,7 @@
 			if(eval2[0]['data']=='null_data'){
 				alert("아이디나 비밀번호가 일치하지 않습니다.");
 			} else{
-				location.href='/gift/testpage';
+				location.href='/gift/';
 			}
 			
 			//메인화면으로 리다이렉트

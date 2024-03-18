@@ -153,10 +153,20 @@ function payitem(f) {
 	              	</c:when>
 	              </c:choose>
 
-	              <!-- 구매하기 -->
-	              <a href="payitem?item_no=${item.item_no}">
+	                <!-- 구매하기 -->
+	              <c:choose>
+	              <c:when test="${!empty m_idx}">
+	              <a href="payitem?item_no=${item.item_no }">
 	                <div class="btnBuy">구매하기</div>
 	              </a>
+	              </c:when>
+	              <c:when test="${empty m_idx}">
+	              <a href="/gift/mlogin">
+	              	<div class="btnBuy">구매하기</div>
+	              </a>
+	              </c:when>
+	              </c:choose>
+
 	      		</div>
           </div>
         </div>
