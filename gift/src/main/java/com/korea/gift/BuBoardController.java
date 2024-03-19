@@ -23,7 +23,7 @@ import service.BuMemberService;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/bu/board")
-public class buBoardController {
+public class BuBoardController {
 
 	private final static String BU_BOARD_VIEW_PATH = "/WEB-INF/views/board";
 
@@ -61,7 +61,7 @@ public class buBoardController {
 
 		model.addAttribute("qna", boardService.qnaOne(qna_no));
 		model.addAttribute("replyList", replies);
-		model.addAttribute("writers", writers); // bu_no, bu_writer ����Ҽ� �� �Ѱ��ֱ�
+		model.addAttribute("writers", writers); // bu_no, bu_writer ����Ҽ�? �� �Ѱ��ֱ�
 
 		return BU_BOARD_VIEW_PATH + "/buQnaDetail.jsp";
 	}
