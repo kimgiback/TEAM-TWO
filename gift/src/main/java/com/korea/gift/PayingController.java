@@ -150,7 +150,7 @@ public class PayingController {
 		 
 		 
 		   model.addAttribute("cartbuyItem", cartbuyItem); // 카트 아이템 리스트를 모델에 추가
-		   System.out.println("carybuyItem="+cartbuyItem);
+		   System.out.println("carybuyItem1="+cartbuyItem);
 		   
 		   return Common.Paying.VIEW_PATH+"buy_info.jsp";
 	   }
