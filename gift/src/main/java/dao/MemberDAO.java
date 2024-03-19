@@ -1,4 +1,4 @@
-    package dao;
+package dao;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,18 +20,18 @@ public class MemberDAO {
 	
 	public MemberDTO login(HashMap<String, String> map) {
 		
-		System.out.println("¾ÆÀÌµğdao : " +map.get("id"));
-		System.out.println("ºñ¹Ğ¹øÈ£dao : " +map.get("pwd"));
+		System.out.println("ì•„ì´ë””dao : " +map.get("id"));
+		System.out.println("ë¹„ë°€ë²ˆí˜¸dao : " +map.get("pwd"));
 		
 
 		MemberDTO dto = sqlSession.selectOne("m.memberlogin",map);
 		if(dto==null) {
-			System.out.println("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+			System.out.println("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 		}else {
 			System.out.println(dto.getM_idx());
 			System.out.println(dto.getM_name());
-			System.out.println("½ÇÁ¦ ¾ÆÀÌµğ : " + dto.getM_id());
-			System.out.println("½ÇÁ¦ ºñ¹Ğ¹øÈ£ : " + dto.getM_pwd());
+			System.out.println("ì‹¤ì œ ì•„ì´ë”” : " + dto.getM_id());
+			System.out.println("ì‹¤ì œ ë¹„ë°€ë²ˆí˜¸ : " + dto.getM_pwd());
 			//return null;
 		}
 		
@@ -41,7 +41,7 @@ public class MemberDAO {
 
 
 	public void insert(HashMap<String, String> m_join_insert) {
-		System.out.println("DAO ÀÚ¹Ù Ãâ·Â");
+		System.out.println("DAO ìë°” ì¶œë ¥");
 		System.out.println(m_join_insert.get("id"));
 		System.out.println(m_join_insert.get("pwd"));
 		System.out.println(m_join_insert.get("name"));
@@ -49,7 +49,7 @@ public class MemberDAO {
 		System.out.println(m_join_insert.get("email"));
 		System.out.println(m_join_insert.get("phone"));
 		sqlSession.insert("m.memberjoin", m_join_insert);
-		System.out.println("insert¿Ï·á");
+		System.out.println("insertì™„ë£Œ");
 		//sqlSession.insert("m.memberjoin", memberDTO);
 		
 	}
@@ -57,10 +57,10 @@ public class MemberDAO {
 
 	public String check_id(String id) {
 		// TODO Auto-generated method stub
-		System.out.println("daoÀÇ °ªµµ "+id);
+		System.out.println("daoì˜ ê°’ë„ "+id);
 		String checked_id = sqlSession.selectOne("m.checkid", id);
-//		if(checked_id==null) {System.out.println("¾ÆÀÌµğ°¡ ¾ø½À´Ï´Ù.");}
-//		else {System.out.println("Áßº¹µÈ ¾ÆÀÌµğ "+checked_id+"°¡ ÀÖ½À´Ï´Ù.");}
+//		if(checked_id==null) {System.out.println("ì•„ì´ë””ê°€ ì—†ìŠµë‹ˆë‹¤.");}
+//		else {System.out.println("ì¤‘ë³µëœ ì•„ì´ë”” "+checked_id+"ê°€ ìˆìŠµë‹ˆë‹¤.");}
 		
 		return checked_id;
 		
@@ -68,8 +68,79 @@ public class MemberDAO {
 	}
 
 
+	//ì•„ì´ë””ì²´í¬
+	public HashMap<String, String> check_name(String name, String phone) {
+		// TODO Auto-generated method stub
+		
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("name", name);
+		map.put("phone", phone);
+		
+		String get_name = sqlSession.selectOne("m.checkmname", map);
+		String get_id = sqlSession.selectOne("m.checkmid", map);
+		System.out.println("ê°€ì ¸ì˜¨ ì´ë¦„ì€ "+get_name+"ì´ê³  ì…ë ¥í•œ ì´ë¦„ë„ "+name);
+		System.out.println("ì•„ì´ë””ëŠ” "+get_id);
+		
+		HashMap<String, String> result = new HashMap<String, String>();
+		result.put("get_id", get_id);
+		result.put("get_name", get_name);
+		
+		return result;
+		
+	}
+
+
+	//ë¹„ë°€ë²ˆí˜¸ì²´í¬
+	public String check_name(String name, String phone, String id) {
+		// TODO Auto-generated method stub
+		
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("name", name);
+		map.put("phone", phone);
+		map.put("id", id);
+		
+		String get_name = sqlSession.selectOne("m.checkmname_pwd", map);
+//		System.out.println("ê°€ì ¸ì˜¨ ì´ë¦„ì€ "+get_name+"ì´ê³  ì…ë ¥í•œ ì´ë¦„ë„ "+name);
+//		System.out.println(get_name);
+		return get_name;
+
+	}
+
+
+	public void send_temp_pwd(String phone, String random_Int_Str) {
+
+
+		System.out.println(phone);
+		//System.out.println(random_Int_Str);
+		
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("phone", phone);
+		map.put("random_int_Str", random_Int_Str);
+		//System.out.println(random_Int_Str);
+		System.out.println("-------------------");
+		System.out.println(phone);
+		System.out.println(random_Int_Str);
+		
+
+		
+		System.out.println("---------------");
+		
+		sqlSession.update("m.temp_pwd", map);
+//		String temp_pwd = sqlSession.selectOne("m.find_temp_pwd",phone);
+//		System.out.println(temp_pwd);
+//		return temp_pwd;
+		
+	}
+
+
+	public int m_withdraw(int m_idx) {
+		// TODO Auto-generated method stub
+		
+		return sqlSession.delete("m.m_withdraw", m_idx);
+	}
+
+
+
 	
 	
 }
-
-    

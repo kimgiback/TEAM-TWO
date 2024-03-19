@@ -1,6 +1,10 @@
-    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"[]>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="m">
-  <!-- 
+
+<!-- 
 	<resultMap type="member" id="molu">
 		<result column="m_id" property="bu_id"/> 
 		<result column="m_pwd" property="bu_pwd"/> 
@@ -12,24 +16,76 @@
 	
 	resultMap="molu" 
  -->
-  <!-- 로그인 -->
-  <select id="memberlogin" parameterType="java.util.HashMap" resultType="member">
+	
+	<!-- 로그인 -->
+	<select id="memberlogin" parameterType="java.util.HashMap" resultType="member">
 		select * from member where m_id =#{id} and m_pwd =#{pwd}
 	</select>
-  <!-- <insert id="memberjoin" parameterType="dto.memberDTO"> -->
-  <!-- INSERT INTO MEMBER (M_IDX, M_ID, M_PWD, M_NAME, M_ADDRESS, M_EMAIL, M_PHONE)  -->
-  <!--  VALUES (SEQ_M_IDX.NEXTVAL, #{m_id}, #{m_pwd}, #{m_name}, #{m_adress}, #{m_email},#{m_phone})-->
-  <!-- </insert> -->
-  <!-- 통상적인 회원가입 -->
-  <!-- insert, delete, update는 resultType를 자동처리해 쓸필요없음. -->
-  <insert id="memberjoin" parameterType="java.util.HashMap">
+	
+	<!-- <insert id="memberjoin" parameterType="dto.memberDTO"> -->
+	<!-- INSERT INTO MEMBER (M_IDX, M_ID, M_PWD, M_NAME, M_ADDRESS, M_EMAIL, M_PHONE)  -->	
+	<!--  VALUES (SEQ_M_IDX.NEXTVAL, #{m_id}, #{m_pwd}, #{m_name}, #{m_adress}, #{m_email},#{m_phone})-->	
+	<!-- </insert> -->
+	
+	
+	<!-- 통상적인 회원가입 -->
+	<!-- insert, delete, update는 resultType를 자동처리해 쓸필요없음. --> 
+	<insert id="memberjoin" parameterType="java.util.HashMap">
 		INSERT INTO MEMBER (M_IDX, M_ID, M_PWD, M_NAME, M_ADDRESS, M_EMAIL, M_PHONE) 
 		VALUES (SEQ_M_IDX.NEXTVAL, #{id}, #{pwd}, #{name}, #{addr}, #{email}, #{phone})
 	</insert>
-  <!-- 가입 시 id 중복확인 -->
-  <!-- java.lang.String 대신 String 쓸 수 있음. -->
-  <select id="checkid" parameterType="String" resultType="String">
+	 
+	 
+	 <!-- 가입 시 id 중복확인 -->
+	 <!-- java.lang.String 대신 String 쓸 수 있음. -->
+	<select id="checkid" parameterType="String" resultType="String">
 		select m_id from member where m_id=#{id}
 	</select>
+	
+	
+	
+	<!-- 아이디 확인 시 휴대폰인증 확인 1 -->
+	<select id="checkmname" parameterType="java.util.HashMap" resultType="String">
+		select m_name from member where m_name=#{name} and m_phone = #{phone}
+	</select>
+	
+	<!-- 아이디 확인 시 휴대폰인증 확인 2 -->
+	<select id="checkmid" parameterType="java.util.HashMap" resultType="String">
+		select m_id from member where m_name=#{name} and m_phone = #{phone}
+	</select>
+	
+	<!-- 비밀번호 확인 시 휴대폰인증 확인 -->
+	<select id="checkmname_pwd" parameterType="java.util.HashMap" resultType="String">
+		select m_name from member where m_name=#{name} and m_phone = #{phone} and m_id = #{id}
+	</select>
+	
+
+	<!-- 임시비밀번호로 바꿈 -->
+	<update id="temp_pwd" parameterType="java.util.HashMap">
+		update member set m_pwd=#{random_int_Str}  where m_phone = #{phone}
+	</update>
+	 
+	<!-- 임시비밀번호 찾기 -->
+	<!-- 
+	<select id="find_temp_pwd" parameterMap="String" resultType="String">
+		select m_pwd from member
+	</select> 
+	-->
+
+	<!-- 회원탈퇴 -->
+	<delete id="m_withdraw" parameterType="int">
+		delete from member where m_idx=#{m_idx}
+	</delete>
+	
 </mapper>
-    
+
+
+
+
+
+
+
+
+
+
+
