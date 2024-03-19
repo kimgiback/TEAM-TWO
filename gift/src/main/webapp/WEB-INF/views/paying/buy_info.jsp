@@ -47,11 +47,11 @@
 <c:forEach var="dto" items="${cartbuyItem }">
 	<div class="button_container">
         <!-- 이미지 -->
-        <img src="" alt="" class="item_image" style="background-image: url('이미지 주소');">
+        <img src="${pageContext.request.contextPath}/resources/images/item/${cartbuyItem.img_name}.jpg" alt="" class="item_image">
         <!-- 버튼 -->
         <input type="button" value="${dto.brand}" class="item_button" onclick="">
     </div>
-			<div class="item_name">${dto.item_name }</div>
+			<div class="item_name"></div>
 				<table border="1" align="center">
 					<tr>
 						<td colspan="2">정상가</td>
@@ -73,17 +73,8 @@
 						<td align="right"><input type="button" value="구매하기" onclick=""></td>
 					</tr>
 						
-				</table>
-
-	
+	</table>
 	<hr>
-	
-	<h3>[상품명]</h3>
-	
-	<h3>${dto.item_name }</h3>
-	<h3>[상품 정보]</h3>
-	<h3>${dto.item_info }</h3>
-	
 	</c:forEach>
 	
 </body>

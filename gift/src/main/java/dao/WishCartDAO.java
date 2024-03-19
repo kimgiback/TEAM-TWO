@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -82,7 +83,12 @@ public class WishCartDAO {
 		}
 		
 		//카트 전체 조회하기
-		public List<CartItemDTO> AllCartItem(CartItemDTO cartItemDTO) {
+		public List<String> AllCartItem(CartItemDTO cartItemDTO) {
 			return sqlSession.selectList("wishCart.cartSelectAll",cartItemDTO);
+		}
+		//카트 선택 조회하기
+		public List<CartItemDTO> AllCartItem(HashMap<String,Object> map) {
+			
+			return sqlSession.selectList("wishCart.cartSelectAll", map);
 		}
 }

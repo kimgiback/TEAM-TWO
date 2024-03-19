@@ -66,7 +66,7 @@
 			alert("선택된 상품이 없습니다.");
 			return;
 		}
-		
+		location.href="${pageContext.request.contextPath}/item/cartbuying?items="+checkedItems;
 		// 구현
 	}
 /*---------------------------------------------------  */
@@ -106,18 +106,22 @@
 			updateTotalPrice();
 		}
 	}
-	//장바구니에서 구매하기를 눌렀을 때
 	
+		
+//장바구니에서 구매하기를 눌렀을 때
+	/* 
 	function cartbuy() {
 		var m_idx = document.querySelector('input[name="m_idx"]').value;
 		var item_no = document.querySelector('input[name="item_no"]').value;
-		let url ="cartbuy";
+		let url ="${pageContext.request.contextPath}/item/cartbuy";
 		let param = "item_no="+item_no+
 					"&m_idx="+m_idx;
 		
-		sendRequest(url, param, cartbuyCheck, "post");
+		console.log(m_idx)
 		
-	}
+		sendRequest(url, param, cartbuyCheck, "get");
+		
+	} 
 	function cartbuyCheck() {
 
 			var m_idx = document.querySelector('input[name="m_idx"]').value;
@@ -128,7 +132,7 @@
             
         		if (json[0].result == "success") {
                    	 alert("구매화면으로 이동합니다.");
-                   	location.href = "payitem?item_no=" + item_no;
+                   	location.href ='${pageContext.request.contextPath}/item/cartbuy';
                	 } 	else if(json[0].result="fail") {
                    	 alert("구매에 실패하셨습니다. 상품 화면으로 돌아갑니다.");
                    	return;
@@ -136,12 +140,10 @@
           
             	}
 			
-		}
-
+		} */
 
 	
-		
-
+	
 </script>
 </head>
 <body>
@@ -246,7 +248,7 @@
                 <li>
                   <a style="cursor: pointer;" class="btn_type09" onclick="buy()">
                     <span class="icogift"></span>
-                    <span class="txt"><input type="button" value="구매하기" onclick="cartbuy()"></span>
+                    <span class="txt"><input type="button" value="구매하기" onclick="buying"></span>
                   </a>
                 </li>
                 <li>
