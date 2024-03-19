@@ -447,16 +447,16 @@ public class MemberController {
 //	   message.setText("문자발송[sms_test]"+""+"를 입력해주십시오.");
 	   message.setText(text);
 	   
-//	   try {
-//			messageSend.send(message);
-//		} catch (NurigoMessageNotReceivedException e) {
-//			// TODO Auto-generated catch block
-//			System.out.println(e.getFailedMessageList());
-//			System.out.println(e.getMessage());
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			System.out.println(e.getMessage());
-//		}
+	   try {
+			messageSend.send(message);
+		} catch (NurigoMessageNotReceivedException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getFailedMessageList());
+			System.out.println(e.getMessage());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
 	   
 	   String return_value = "[{'value':'"+ value +"'}]";
 	   System.out.println("return_value : "+return_value);
