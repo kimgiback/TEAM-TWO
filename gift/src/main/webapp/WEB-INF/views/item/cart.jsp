@@ -107,21 +107,47 @@
 		}
 	}
 	//장바구니에서 구매하기를 눌렀을 때
+	
 	function cartbuy() {
-		
 		var m_idx = document.querySelector('input[name="m_idx"]').value;
-			alert("결제페이지로 이동합니다.")
-			location.href = "cartbuy?m_idx=" + m_idx;
+		var item_no = document.querySelector('input[name="item_no"]').value;
+		let url ="cartbuy";
+		let param = "item_no="+item_no+
+					"&m_idx="+m_idx;
+		
+		sendRequest(url, param, cartbuyCheck, "post");
+		
+	}
+	function cartbuyCheck() {
+
+			var m_idx = document.querySelector('input[name="m_idx"]').value;
+			
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                	var data = xhr.responseText;
+                	var json = (new Function('return' + data))();
+            
+        		if (json[0].result == "success") {
+                   	 alert("구매화면으로 이동합니다.");
+                   	location.href = "payitem?item_no=" + item_no;
+               	 } 	else if(json[0].result="fail") {
+                   	 alert("구매에 실패하셨습니다. 상품 화면으로 돌아갑니다.");
+                   	return;
+                	}
+          
+            	}
 			
 		}
 
 
+	
 		
 
 </script>
 </head>
 <body>
+
 <input type="hidden" name="m_idx" value="${cartbuyItem.m_idx }">
+<input type="hidden" name="item_no" value="${cartbuyItem.item_no }">
   <div id="wrapper">
 
 	<!-- 헤더영역 -->
@@ -236,6 +262,7 @@
 
     </section>
   </div>
+ 
 </body>
 <script type="text/javascript">
 

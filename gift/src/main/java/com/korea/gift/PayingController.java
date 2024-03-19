@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -135,20 +136,28 @@ public class PayingController {
 	   
 	   
 	   @RequestMapping("cartbuy")
-	   public String cartbuy(@RequestParam("item_no") int item_no, CartDTO cartDTO, String payment, Model model) {
+	   public String cartbuy(@RequestParam int m_idx, CartItemDTO cartItemDTO, Model model) {
 
 	       Integer show = (Integer) session.getAttribute("m_idx");
 
-	       if (show == null) {
-	           return Common.Member.VIEW_PATH + "login.jsp";
-	       }
-
 	       //로그인 했을 때
 	       if (show != null) {
-	           int m_idx = show;
-	           List<CartItemDTO> cartbuyItem = wishCart_dao.AllCartItem(m_idx); // 모든 카트 아이템 가져오기
+	           m_idx = show;
+	           List<CartItemDTO> cartbuyItem = wishCart_dao.AllCartItem(cartItemDTO); // 모든 카트 아이템 가져오기
 
 	           model.addAttribute("cartbuyItem", cartbuyItem); // 카트 아이템 리스트를 모델에 추가
+	           System.out.println("carybuyItem="+cartbuyItem);
+	           
+	           int res = wishCart_dao.AllCartItem(cartItemDTO).size();
+	   		System.out.println("Res=" + res);
+	   		String result = "";
+
+	   		if (res > 0) {
+	   			result = "[{'result':'success'}]";
+	   		} else {
+	   			result = "[{'result':'fail'}]";
+	   		}
+	   		return result;
 	       }
 
 	       return Common.Paying.VIEW_PATH+"buy_info.jsp";
