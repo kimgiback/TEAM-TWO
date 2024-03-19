@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+/*아이디, 비밀번호 모든 바디 전체*/
+.forgot_m_id_pwd_body{
+	margin:120px auto;
+	display:block;
+	background: #dfffff;
+	width:400px;
+	border-radius:10px;
+	height:400px;
+}
+
+
+/*캡션 기능하는 텍스트*/
+#caption_finding_m_id{
+	font-size: 200%;
+    padding-top: 2%;
+	padding-bottom: 2%;
+    display: block;
+    font-weight: bold;
+    margin-left:100px;
+    margin-bottom:20px;
+}
+
+/*캡션 기능하는 텍스트 - 비밀번호 따로*/
+#caption_finding_m_pwd{
+	font-size: 200%;
+    padding-top: 2%;
+	padding-bottom: 2%;
+    display: block;
+    font-weight: bold;
+    margin-left:90px;
+    margin-bottom:20px;
+}
+
+
+
+/*텍스트, 텍스트삽입 정렬*/
+.forgot_m_id_pwd_row{
+	display: flex;
+	margin-bottom:10px;
+}
+
+
+/*아이디 찾기 텍스트 창 설정*/
+.forgot_m_id_pwd_text{
+	margin-left: 20px;
+	width:70px;
+	font-weight: bold;
+}
+
+
+/*아이디 찾기 텍스트 삽입 창 설정*/
+.forgot_m_id_pwd_textinput{
+	font-size: 100%;
+    padding: 10px;
+    border: 0px;
+    width: 220px;
+    border-radius: 10px;
+    margin-left: 24px;
+}
+
+/*휴대전화 인증버튼*/
+#forgot_m_id_pwd_textbutton{
+    border: 0px;
+    margin-left: 240px;
+    background-color: #48D1CC;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+	
+}
+
+/*아이디 찾기 최종 버튼*/
+#m_id_check_final_button{
+	height: 10%;
+    font-size: 140%;
+    background-color: #48D1CC;
+    color: white;
+    cursor: pointer;
+    margin-left: 8%;
+    border-radius: 6px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    width: 335px;
+    text-align: center;
+    border:0px;
+    padding-top:6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*여기서부터는 비밀번호 찾기 전용*/
+
+#forgot_m_pwd_name_body{
+	margin:120px auto;
+	display:block;
+	background: #dfffff;
+	width:400px;
+	border-radius:10px;
+	height:400px;
+}
+
+
+/*이름 알려달라고 말하는 텍스트 - 비밀번호 따로*/
+
+#caption_finding_m_pwd_mini{
+    padding-top: 14%;
+	padding-bottom: 2%;
+    display: block;
+    font-weight: bold;
+    margin-left:20px;
+    margin-bottom:20px;
+}
+
+/*비밀번호 찾기 전 아이디 알려달라는 텍스트*/
+
+#forgot_m_pwd_idcheck_textinput{
+    font-size: 100%;
+    padding: 10px;
+    border: 0px;
+    width: 220px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+/*비밀번호 찾기 전 아이디 알려달라는 버튼*/
+#forgot_m_pwd_idcheck_textbutton{
+	border: 0px;
+    margin-left: 10px;
+    background-color: #48D1CC;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+/*비밀번호 찾기 최종 버튼*/
+#m_pwd_check_final_button{
+	height: 10%;
+    font-size: 140%;
+    background-color: #48D1CC;
+    color: white;
+    cursor: pointer;
+    margin-left: 8%;
+    border-radius: 6px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    width: 335px;
+    text-align: center;
+    border:0px;
+
+}
+
+#hide_pwd_body{
+	display:none;
+}

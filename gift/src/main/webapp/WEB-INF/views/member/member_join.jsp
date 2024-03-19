@@ -1,4 +1,4 @@
-    <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -125,9 +125,6 @@
 		
 		//리턴 못함..? 가능
 		
-		
-		
-		
 
 	}
 	
@@ -167,6 +164,7 @@
 
 </head>
 <body>
+<%@ include file="../commons/header.jsp"%> 
     <form>
         <table id="join_table">
         	<caption id="member_insert_title">회원가입</caption>
@@ -215,8 +213,7 @@
             </tr>
         </table>
     </form>
+<%@ include file="../commons/footer.jsp"%> 
 </body>
 </html>
 
-
-    

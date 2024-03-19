@@ -3,13 +3,14 @@
 
 /*회원가입테이블 전체 배치*/
 #join_table{
-	/*width: 50%;*/
-	margin:20px auto;
-	margin-top:280px;
-	display:block;
-	background: #dfffff;
-	width:400px;
-	border-radius:10px;
+    /* width: 50%; */
+    margin: 40px auto;
+    /* margin-top: 280px; */
+    display: block;
+    background: #dfffff;
+    width: 400px;
+    border-radius: 10px;
+    /* padding: 20px;
 }
 
 /* 회원가입 텍스트*/
