@@ -77,6 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	INSERT INTO WISH VALUES ( #{m_idx}, #{item_no}, sysdate ) 
 </insert>
 
+<!-- 단일 장바구니 넣어서 바로 결제하기  -->
 <insert id="cartItem" parameterType="CartDTO">
 	insert into cart(m_idx, item_no, cart_quantity)values (
 		#{m_idx},
@@ -89,8 +90,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select count(*) from cart WHERE m_idx = #{m_idx}
 </select>
 
-<select id="cartSelectAll" parameterType="int" resultType="CartItemDTO">
-select * from cart
+<select id="cartSelectAll" parameterType="java.util.HashMap" resultType="CartItemDTO">
+    SELECT c.m_idx, c.item_no, c.cart_quantity, i.brand, i.item_price, img.img_name, m.PAYMENT
+    FROM CART c 
+    JOIN ITEM i ON c.item_no = i.item_no
+    JOIN ITEM_IMAGEFILE img ON i.item_no = img.item_no
+    JOIN MEMBER m ON m.M_IDX = c.M_IDX
+    WHERE m.m_idx = #{m_idx}
+    AND c.item_no IN
+    <foreach collection="items" item="item_no" open="(" close=")" separator=","> #{item_no} </foreach>
 </select>
 
 </mapper>

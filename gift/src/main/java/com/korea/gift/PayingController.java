@@ -10,6 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -133,29 +135,23 @@ public class PayingController {
 	      }
 	   }
 	   
-	   
-	   @RequestMapping("cartbuy")
-	   public String cartbuy(@RequestParam("item_no") int item_no, CartDTO cartDTO, String payment, Model model) {
-
-	       Integer show = (Integer) session.getAttribute("m_idx");
-
-	       if (show == null) {
-	           return Common.Member.VIEW_PATH + "login.jsp";
-	       }
-
-	       //로그인 했을 때
-	       if (show != null) {
-	           int m_idx = show;
-	           List<CartItemDTO> cartbuyItem = wishCart_dao.AllCartItem(m_idx); // 모든 카트 아이템 가져오기
-
-	           model.addAttribute("cartbuyItem", cartbuyItem); // 카트 아이템 리스트를 모델에 추가
-	       }
-
-	       return Common.Paying.VIEW_PATH+"buy_info.jsp";
+	 
+	   @RequestMapping("cartbuying")
+	   public String cartbuying(@RequestParam("items") List<String> items, Model model) {
+		   
+		   Integer m_idx = (Integer) session.getAttribute("m_idx");
+		  
+		   System.out.println("m_idx="+m_idx);
+		   HashMap<String, Object> map = new HashMap<String, Object>();
+		   map.put("m_idx", m_idx);
+		   map.put("items",items);
+		   System.out.println("items="+items);
+		   List<CartItemDTO> cartbuyItem = wishCart_dao.AllCartItem(map); // 배열에 있는 모든 카트 아이템 가져오기
+		 
+		 
+		   model.addAttribute("cartbuyItem", cartbuyItem); // 카트 아이템 리스트를 모델에 추가
+		   System.out.println("carybuyItem1="+cartbuyItem);
+		   
+		   return Common.Paying.VIEW_PATH+"buy_info.jsp";
 	   }
-
-}
-
-
-		
-		
+	   }
