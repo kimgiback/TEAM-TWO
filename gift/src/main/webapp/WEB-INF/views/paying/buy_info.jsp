@@ -144,7 +144,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function buying() {
     
-    let item_no = document.querySelector('input[name="checkedItems"]').value;
+	let checkedItems = [];
+
+    // 각 checkbox를 확인하여 선택된 상품의 item_no를 배열에 추가합니다.
+    checkboxes.forEach(function(checkbox) {
+		if (checkbox.checked) {
+			checkedItems.push(checkbox.value);
+		}
+	});
+
+    // 선택된 상품들의 item_no를 쉼표로 구분하여 문자열로 변환합니다.
+    let item_no = checkedItems.join(',');
     let m_idx = document.querySelector('input[name="m_idx"]').value;
     let payment = document.querySelector('input[name="payment"]').value;
     
