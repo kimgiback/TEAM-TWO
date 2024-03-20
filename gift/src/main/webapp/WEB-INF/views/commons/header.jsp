@@ -13,7 +13,7 @@
 			<div class ="top-menu">
 				<a href="javascript:;" onclick="location.href='${pageContext.request.contextPath}/mlogin'">로그인</a>
 				<a href="javascript:;" onclick="location.href='${pageContext.request.contextPath}/mjoin'">회원가입</a>
-				<a href="javascript:;" onclick="">고객센터</a>
+				<a href="javascript:;" onclick="location.href='${pageContext.request.contextPath}/userQna_list'">고객센터</a>
 			</div>
 			<div class ="header-wrap">
 				<h1><a href="javascript:;" onclick="location.href='${pageContext.request.contextPath}'"></a></h1>

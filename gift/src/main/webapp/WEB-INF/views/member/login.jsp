@@ -210,6 +210,7 @@
 	            		<input type="button" value="아이디 찾기" onclick="location.href='/gift/selectmidfor'" class="member_login_select_detail">
 	            		<input type="button" value="비밀번호 찾기" onclick="location.href='/gift/selectmpwdfor'" class="member_login_select_detail">
 	            		<input type="button" value="회원가입" onclick="location.href='/gift/mjoin'" class="member_login_select_detail">
+	            		<input type="button" value="관리자 로그인" onclick="location.href='/gift/bu/member/buLoginForm'" class="bu_login_select_detail">
 	            	</td>
 	            </tr>
             </tbody>

@@ -136,6 +136,11 @@ function BuyingCheck() {
 
 </head>
 <body>
+
+<!-- 헤더영역 -->
+	<jsp:include page="../commons/header.jsp"></jsp:include>
+	
+	
 <div class="pay-wrap">
   <h2 class="bLine">결제정보</h2>
   <form action="payitem" method="post" name="f">
@@ -227,6 +232,9 @@ function BuyingCheck() {
   <div class="btnBuyArea">
     <input type="button" value="결제하기" onclick="buying()">
   </div>
-
+  
+<!-- 푸터영역 -->
+	<jsp:include page="../commons/footer.jsp"></jsp:include>
+	
   </body>
 </html>

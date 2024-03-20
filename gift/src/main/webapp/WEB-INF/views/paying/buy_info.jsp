@@ -7,54 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/pay/paying.css">
 <script src="${pageContext.request.contextPath}/resources/js/httpRequest.js"></script>
-<style>
-  
-  .button_container {
-  	position:relative;
-  	display: flex; 
-    margin-bottom: 20px;
-  }
-    /* 이미지에 대한 스타일 */
-    .item_image {
-    	position:relative;
-        width: 325px;
-        height: 325px;
-        margin-top: 75px;
-        vertical-align:top;
-    }
 
-    /* 버튼에 대한 스타일 */
-    .item_button {
-        position: absolute; /* 절대 위치 설정 */
-        font-size: 19px; /* 폰트 크기 설정 */
-        border-radius: 5px; /* 버튼 모서리를 둥글게 만듦 */
-        cursor: pointer; /* 커서 타입 설정 */
-        left:1px;
-       	margin-top: 45px; 
-       	background-color:transparent;
-       	border:none;
-       	font-weight: bold;
-    }
-    
-    .item_name {
-    margin-top: 10px; /* 이미지와 상품 이름 사이 간격 조정 */
-    font-weight: bold;
-  }
- 
-   
-</style>
 
 <script type="text/javascript">
 
-function getItemNo() {
-    var itemNo = document.getElementById('item_no').value;
-    console.log(itemNo); // 가져온 값 출력
-}
 
-// 함수 호출
-getItemNo();
 
 /* 선택한 상품들을 배열에 넣어놨음 컨트롤러에서 jsp 출력만 하면 됨 */
 let checkedItems = [];
@@ -104,7 +63,7 @@ function buy() {
              
              // 클릭한 값 결제수단에 반영
              var paymentValue =  document.querySelector('input[name="payment"]').value; // 서버에서 반환된 결제수단 값
-             document.querySelector('#payment').innerText = paymentValue;
+             document.querySelector('#payment').value = paymentValue;
              console.log(paymentValue);
          } else if (json[0].result == "fail") {
              // 서버에서 처리가 실패했을 경우
@@ -189,6 +148,11 @@ function BuyingCheck() {
 </script>
 </head>
 <body>
+
+<!-- 헤더영역 -->
+	<jsp:include page="../commons/header.jsp"></jsp:include>
+	
+	
 <div class="pay-wrap">
   <h2 class="bLine">결제정보</h2>
   <div class="col-type=01 justify-cont">
@@ -196,6 +160,10 @@ function BuyingCheck() {
 
   <c:set var="totalPrice" value="0" />
   <c:forEach var="dto" items="${cartbuyItem}">
+  
+  <input type="hidden" value="${dto.item_no }" name="item_no">
+  <input type="hidden" value="${dto.m_idx }" name="m_idx">
+  <input type="hidden" value="${dto.payment }" name="payment">
       <c:set var="totalPrice" value="${totalPrice + dto.item_price}" />
       
       <div class="gift-info row-type03">
@@ -257,7 +225,8 @@ function BuyingCheck() {
             <tbody id="pay_method_name">
               <tr>
                 <th>결제 수단</th>
-                <td id="pg_name">수정</td>
+                <td><input id="payment" type="text" name="payment" value="삼성페이" readonly="readonly"></td>
+
               </tr>
             </tbody>
             <tfoot>
@@ -279,5 +248,8 @@ function BuyingCheck() {
     </div>
 </div>
 
+<!-- 푸터영역 -->
+	<jsp:include page="../commons/footer.jsp"></jsp:include>
+	
   </body>
 </html>

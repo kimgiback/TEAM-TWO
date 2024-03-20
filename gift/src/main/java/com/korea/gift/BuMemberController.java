@@ -67,9 +67,9 @@ public class BuMemberController {
 		
 		BusinessDTO login = service.buLogin(dto);
 
-		// �ش��ϴ� ȸ���� �ִ��� ����
+		// 占쌔댐옙占싹댐옙 회占쏙옙占쏙옙 占쌍댐옙占쏙옙 占쏙옙占쏙옙
 		if (login == null) {
-			// ȸ�� ������ ���ǿ� ����ְ� ������ model�� ���� �޼���
+			// 회占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占실울옙 占쏙옙占쏙옙斂占� 占쏙옙占쏙옙占쏙옙 model占쏙옙 占쏙옙占쏙옙 占쌨쇽옙占쏙옙
 			session.setAttribute("buLogin", null);
 			rttr.addFlashAttribute("msg", false);
 
@@ -80,11 +80,11 @@ public class BuMemberController {
 			System.out.println("login success");
 		}
 
-		// jsp���� c:if�� ���� page ��ȭ �־����
+		// jsp占쏙옙占쏙옙 c:if占쏙옙 占쏙옙占쏙옙 page 占쏙옙화 占쌍억옙占쏙옙占�
 		return "redirect:/";
 	}
 	
-	//�α׾ƿ�
+	//占싸그아울옙
 	@RequestMapping("/buLogout")
 	public String buLogout(HttpSession session) {
 		session.invalidate();
@@ -92,7 +92,7 @@ public class BuMemberController {
 		return "redirect:/";
 	}
 	
-	//id����
+	//id占쏙옙占쏙옙
 	@RequestMapping("/buIdCheck")
 	public String buIdCheck(BusinessDTO dto, RedirectAttributes rttr) {
 		String bu_id = dto.getBu_id();
