@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -191,73 +189,95 @@ function BuyingCheck() {
 </script>
 </head>
 <body>
-<c:set var="totalPrice" value="0" />
-<c:forEach var="dto" items="${cartbuyItem}">
-    <c:set var="totalPrice" value="${totalPrice + dto.item_price}" />
-    <div class="button_container">
-        <img src="${pageContext.request.contextPath}/resources/images/item/${dto.img_name}.jpg" width="200" height="200" class="image">
-        <input type="button" value="${dto.brand}" class="item_button" onclick="">
-        <input type="hidden" value="${dto.item_no }" name="item_no" >
-         <input type="hidden" value="${dto.m_idx }" name="m_idx" >
-          <input type="hidden" value="${dto.payment }" name="payment" >
-    </div>
-    <div class="item_name"></div>
-    <table border="1" align="center">
-        <tr>
-            <td colspan="2">정상가</td>
-            <td>${dto.item_price }</td>
-        </tr>
-        <tr>
-            <td colspan="2">제공가</td>
-            <td>${dto.item_price }</td>
-        </tr>
-        <tr>
-            <td colspan="2">교환처</td>
-            <td>${dto.brand }</td>
-        </tr>
-        <tr>
-            <td colspan="2">이용안내</td>
-            <td>기간연장 및 환불불가</td>
-        </tr>               
-    </table>
-</c:forEach>
-<hr>
-<table border="1">
-    <tr>
-        <td>결제 금액</td>
-    </tr>
-    <tr>
-        <td colspan="2">상품 금액</td>
-        <td>${totalPrice }</td>
-    </tr>
-    <tr>
-        <td colspan="2">할인 금액</td>
-        <td>0원</td>
-    </tr>
-    <tr>
-        <td colspan="2">쿠폰</td>
-        <td>0원</td>
-    </tr>
-    <tr>
-        <td colspan="2">결제 수단</td>
-       <td><input type="text" name="payment" value="삼성페이" readonly="readonly"></td>
-    </tr>
-    <tr>
-        <td colspan="2">결제 금액</td>
-        <td>${totalPrice }</td>
-    </tr>
-     <tr>
-        <td><input type="button" value="결제하기" onclick="buying()"></td>
-     </tr>   
+<div class="pay-wrap">
+  <h2 class="bLine">결제정보</h2>
+  <div class="col-type=01 justify-cont">
+    <div class="one">
 
-</table>        
-        
-        <h2 style="margin-top: -94px;">결제수단</h2>
+  <c:set var="totalPrice" value="0" />
+  <c:forEach var="dto" items="${cartbuyItem}">
+      <c:set var="totalPrice" value="${totalPrice + dto.item_price}" />
+      
+      <div class="gift-info row-type03">
+          <div class="pimg gift-img">
+            <img src="${pageContext.request.contextPath}/resources/images/item/${dto.img_name}">
+          </div>
+  
+        <div class="gift-info-desc order">         
+          <span class="brandNm">교환처 ${dto.brand}</span>
+          <p class="goodsNm">상품명 ${dto.item_name}</p>
+          <p class="count"><span class="phoneCnt">이용안내 </span>기간연장 및 환불불가</p>
+          <div class="itemPrice"><span class="price">${dto.item_price}</div>
+        </div>
+      </div>
+  </c:forEach>
+
+  <div class="row-type03">
+    <h3>결제 수단</h3>
+    <ul class="grid-container _tab04" id="pay_method_area">
+      <li>
         <input type="button" value="신용카드" onclick="card('신용카드')" class="button" name="credit_button">
+      </li>
+      <li>
         <input type="button" value="휴대전화" onclick="card('휴대전화')" class="button" name="phone_button">
+      </li>
+      <li>
         <input type="button" value="삼성페이" onclick="card('삼성페이')" class="button" name="pay_button">
+      </li>
+      <li>
         <input type="button" value="계좌이체" onclick="card('계좌이체')" class="button" name="send_button">
+      </li>
+    </ul>	
+  </div>
+
+</div>
 
 
-</body>
+      <div class="two">
+        <div class="box-type01">
+          <h3>결제 금액</h3>
+          <table>
+            <tbody>
+              <tr>
+                <th>상품 금액</th>
+                <td><strong id="total_sale_price">${totalPrice }</strong>원</td>
+              </tr>
+              <tr>
+                        <th>할인 금액</th>
+                      <td>0원</td>
+                    </tr>
+              <tr>
+                        <th>쿠폰</th>
+                      <td>0원</td>
+                    </tr>
+
+          </table>
+
+          <table class="t-foot">
+            <tbody id="pay_method_name">
+              <tr>
+                <th>결제 수단</th>
+                <td id="pg_name">수정</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>결제 금액</th>
+                <td><strong id="final_price">${totalPrice }</strong>원</td>
+              </tr>
+            </tfoot>
+          </table>
+
+        </div>
+
+      </div>
+
+</div>
+
+    <div class="btnBuyArea">
+    <input type="button" value="결제하기" onclick="buying()">
+    </div>
+</div>
+
+  </body>
 </html>

@@ -104,6 +104,9 @@
 	</main>
 </div>
 
+	<!-- 푸터영역 -->
+	<jsp:include page="../commons/footer.jsp"></jsp:include>
+
 </body>
 <script type="text/javascript">
 

@@ -136,61 +136,97 @@ function BuyingCheck() {
 
 </head>
 <body>
+<div class="pay-wrap">
+  <h2 class="bLine">결제정보</h2>
+  <form action="payitem" method="post" name="f">
+  <div class="col-type=01 justify-cont">
+  
+    <div class="one">
+      <div class="gift-info row-type03">
+  
+        <div class="pimg gift-img">
+          <img src="${pageContext.request.contextPath}/resources/images/item/${ItemOne.img_name}">
+        </div>
+  
+        <div class="gift-info-desc order">
+          <input type="hidden" name="payment" value="${ItemOne.payment}"> 
+                           <input type="hidden" name="item_no" value="${ItemOne.item_no}">
+                           <input type="hidden" name="m_idx" value="${ItemOne.m_idx}">
+  
+          <span class="brandNm">${ItemOne.brand}</span>
+          <p class="goodsNm">${ItemOne.item_name}</p>
+          <p class="count">총 <span class="phoneCnt">1</span>개</p>
+          <div class="itemPrice"><span class="price">${ItemOne.item_price}</div>
+        </div>
+  
+      </div>
+  
+      <div class="row-type03">
+        <h3>결제 수단</h3>
+        <ul class="grid-container _tab04" id="pay_method_area">
+          <li>
+            <input type="button" value="신용카드" onclick="card('신용카드')" class="button" name="credit_button">
+          </li>
+          <li>
+            <input type="button" value="휴대전화" onclick="card('휴대전화')" class="button" name="phone_button">
+          </li>
+          <li>
+            <input type="button" value="삼성페이" onclick="card('삼성페이')" class="button" name="pay_button">
+          </li>
+          <li>
+            <input type="button" value="계좌이체" onclick="card('계좌이체')" class="button" name="send_button">
+          </li>
+        </ul>	
+      </div>
+  
+    </div>
+  </form>
+  
+  
+    <div class="two">
+      <div class="box-type01">
+        <h3>결제 금액</h3>
+        <table>
+          <tbody>
+            <tr>
+              <th>상품 금액</th>
+              <td><strong id="total_sale_price">${ItemOne.item_price }</strong>원</td>
+            </tr>
+            <tr>
+                      <th>할인 금액</th>
+                     <td>0원</td>
+                  </tr>
+            <tr>
+                      <th>쿠폰</th>
+                     <td>0원</td>
+                  </tr>
+  
+        </table>
 
-<h2 style="margin-top:100px;">결제 정보</h2>
-<hr>
-<form action="payitem" method="post" name="f">
-<div>
-	        <div class="container">
-		          <img src="${pageContext.request.contextPath}/resources/images/item/${ItemOne.img_name}.jpg" width="200" height="200" class="image">
-		
-		    	<div class="text-container">
-		              <input type="hidden" name="payment" value="${ItemOne.payment}"> 
-		               <input type="hidden" name="item_no" value="${ItemOne.item_no}">
-		               <input type="hidden" name="m_idx" value="${ItemOne.m_idx}">
-		               <span class="brand">${ItemOne.brand}</span>
-		               <span class="item_name">${ItemOne.item_name}</span>
-		               <span class="quantity">총 1개</span>
-		               <span class="item_price">${ItemOne.item_price}</span>
-		     	</div>
-	        </div>  
-</div>
-	
-	<table border="1">
-			<tr>
-				<td>결제 금액</td>
-			</tr>
-			<tr>
-				<td colspan="2">상품 금액</td>
-				<td>${ItemOne.item_price }</td>
-			</tr>
-			<tr>
-				<td colspan="2">할인 금액</td>
-				<td>0원</td>
-			</tr>
-			<tr >
-				<td colspan="2">쿠폰</td>
-				<td>0원</td>
-			</tr>
-			<tr>
-				<td colspan="2">결제 수단</td>
-				<td name="payment"><span id="payment" >${ItemOne.payment }</span></td>
-			</tr>
-			<tr>
-				<td colspan="2">결제 금액</td>
-				<td>${ItemOne.item_price }</td>
-			</tr>
-			 <tr>
-			 	<td><input type="button" value="결제하기" onclick="buying()"></td>
-			 </tr>	
+        <table class="t-foot">
+          <tbody id="pay_method_name">
+            <tr>
+              <th>결제 수단</th>
+              <td id="pg_name">${ItemOne.payment }</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>결제 금액</th>
+              <td><strong id="final_price">${ItemOne.item_price }</strong>원</td>
+            </tr>
+          </tfoot>
+        </table>
 
-	</table>		
-			
-		<h2 style="margin-top: -94px;">결제수단</h2>
-		<input type="button" value="신용카드" onclick="card('신용카드')" class="button" name="credit_button">
-		<input type="button" value="휴대전화" onclick="card('휴대전화')" class="button" name="phone_button">
-		<input type="button" value="삼성페이" onclick="card('삼성페이')" class="button" name="pay_button">
-		<input type="button" value="계좌이체" onclick="card('계좌이체')" class="button" name="send_button">
-</form>	
-</body>
+      </div>
+  
+    </div>
+  
+  </div>
+  
+  <div class="btnBuyArea">
+    <input type="button" value="결제하기" onclick="buying()">
+  </div>
+
+  </body>
 </html>

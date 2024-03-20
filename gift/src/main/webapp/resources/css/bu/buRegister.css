@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+.login h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 70px;
+  margin-bottom: -30px;
+}
+
+label {
+  display: inline-block;
+  width: 120px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: calc(100% - 130px); /* 레이블 폭만큼 감소시켜 입력 필드의 폭 조절 */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ec2028;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button#buLogin {
+  width: 100%;
+  height: 48px;
+  font-size: 100%;
+}

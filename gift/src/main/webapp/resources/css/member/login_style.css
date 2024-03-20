@@ -1,59 +1,48 @@
 @charset "UTF-8";
 
-
-
 /*로그인테이블 전체 배치*/
 #login_table{
-	/*width: 50%;*/
-    margin: 120px auto;
+  margin: 120px auto;
 	display:block;
-	background: #dfffff;
-	width:400px;
+	width: 400px;
 	border-radius:10px;
 }
 
 /*로그인 캡션 테이블 배치*/
 #member_login_title{
-	font-size:200%;
-	padding-top: 2%;
-	padding-bottom: 2%;
+  padding: 10px;
+  margin-bottom: 10px;
+	font-size: 28px;
+  width: 400px; 
 	display:block;
 	font-weight: bold;
 }
-/*
-.login_id_style{
-	font-size:160%;
-	
-}*/
 
 .member_login{
-	width:84%; height:60%;
-  	font-size:140%;
-  	background-color:#48D1CC;
+    width: 100%;
+    height: 48px;
+    margin: 10px 0;
+    font-size: 100%;
   	color:white;
-  	border-radius:2%;
-  	border:0px;
-  	cursor: pointer;
-  	margin-left: 8%;
+  	background-color:#ec2028;
+  	border: none;
   	border-radius: 6px;
-  	padding:2px;
-  	margin-top:10px;
-  	margin-bottom:10px;
+  	cursor: pointer;
   	font-weight: bold;
-  	width: 335px;
 }
 
 /*아이디 찾기, 비밀번호 찾기, 회원가입 테이블*/
 #member_login_top_bottom{
-	
-    /*padding-top: 10%;*/
-    padding-bottom: 10%;
-    padding-left: 50px;
+    text-align: center;
 }
+
+#member_login_top_bottom input {
+  color: #999999;
+}
+
 
 /*아이디 찾기, 비밀번호 찾기, 회원가입 배치 세부 설정*/
  .member_login_select_detail{
- 	/*background-color: #00BFFF;*/
     border: 0px;
     cursor: pointer;
     font-size: 16px;
@@ -61,39 +50,34 @@
     background: none;
  }
 
-/*아이디, 비밀번호 입력 창
-.member_login_text{
-	padding-bottom: 2%;
-    padding-left: 8%;
-    padding-right:8%;
-}*/
-
 /*아이디, 비밀번호안내창 배치*/
 .member_login_id_pwd_text{
 	font-size:100%;
 	padding: 10px;
 	border:0px;
-	width: 320px;
+  width: 400px;
+  height: 45px;
 	border-radius: 10px;
-	margin-left: 24px;
+  border: 1px solid #ddd;
+  margin-bottom: 3px;
 }
 
 /*멤버아이디저장*/
+.id_save {
+  padding: 5px;
+}
+
 #member_save_id_checkbox{
 	width: 20px;
     height: 20px;
     border-radius: 40px;
-    margin-left:40px;
 }
 
 #member_id_save_text{
-    margin-left: 80px;
-    
-	position: absolute;
+    margin-left: 35px;
+    margin-top: 3px;
+	  position: absolute;
 }
-
-
-
 
 /*회원탈퇴 텍스트*/
 .member_withdraw_text{
@@ -102,5 +86,4 @@
     border: 0px;
     width: 400px;
     border-radius: 10px;
-    /* margin-left: 24px;*/
 }

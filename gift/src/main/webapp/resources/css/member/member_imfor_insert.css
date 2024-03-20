@@ -3,82 +3,78 @@
 
 /*회원가입테이블 전체 배치*/
 #join_table{
-    /* width: 50%; */
-    margin: 40px auto;
-    /* margin-top: 280px; */
+    margin: 120px auto;
     display: block;
-    background: #dfffff;
     width: 400px;
-    border-radius: 10px;
-    /* padding: 20px;
+		padding: 10px;
+}
+#join_table input {
+	border-radius: 10px;
+  border: 1px solid #ddd;
+	padding: 10px;
+}
+
+.join_col_style {
+	width: 400px;
 }
 
 /* 회원가입 텍스트*/
 #member_insert_title{
-	font-size:200%;
+	font-size: 28px;
 	padding:2%;
 	display:block;
 	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 /*회원가입 각 창 근처 텍스트*/
 .member_insert_intro_text{
+	margin: 0 10px;
 	font-size:100%;
 	padding:2%;
 	display:block;
 	font-weight: bold;
-	margin-left: 20px;
-}
-
-.join_col_style{
-	
-	
 }
 
 /*회원정보 입력창*/
 .member_join_text{
+	margin: 0 10px;
 	font-size:100%;
+	width: 100%;
 	padding: 10px;
 	border:0px;
-	width: 320px;
 	border-radius: 10px;
-	margin-left: 20px;
 }
 
 /*아이디 중복확인*/
 .member_insert_id_check{
-    /* background: none; */
+	line-height: 10px;
     border:0px;
-    margin-left: 20px;
-    background-color: #48D1CC;
-    font-size: 16px;
+    height: 30px;
+    margin-left: 10px;
+    background-color: #ec2028;
     border-radius: 4px;
     padding: 4px;
     margin-top: 10px;
-	cursor: pointer;
-	font-weight:bold;
-	color:white;
+    margin-left: 300px;
+		cursor: pointer;
+		font-weight:bold;
+		color:white;
 }
 
 /* 회원가입 버튼 */
 .member_insert_select_detail{
-	width:84%; height:60%;
-  	font-size:140%;
-  	background-color:#48D1CC;
+		width: 100%;
+		height: 48px;
+  	font-size: 100%;
   	color:white;
-  	border-radius:2%;
-  	border:0px;
-  	cursor: pointer;
-  	margin-left: 8%;
+  	background-color:#ec2028;
   	border-radius: 6px;
-  	padding:2px;
-  	margin-top:40px;
-  	margin-bottom:40px;
+  	border: none;
+  	cursor: pointer;
   	font-weight: bold;
-  	width: 335px;
-}
+		margin: 10px 10px 0 10px;
 
-#searched_member_id_for_join{
+#searched_member_id_for_join {
 	margin-left: 20px;
-	
 }

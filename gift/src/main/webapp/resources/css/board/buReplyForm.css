@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+/* 전체 콘텐츠 정렬 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 화면 전체를 사용하도록 설정 */
+}
+
+/* 폼 스타일 */
+form {
+  width: 50%; /* 폼의 너비를 설정합니다. */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+}
+
+/* 라벨 스타일 */
+label {
+  display: block;
+  width: 100px; /* 라벨의 너비를 설정합니다. */
+  font-weight: bold;
+  margin-top: -14px;
+}
+
+/* 입력 요소 그룹 스타일 */
+.form-group {
+  margin-bottom: 15px; /* 입력 요소 그룹 간격 조절 */
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+}
+
+/* 입력 요소 스타일 */
+input[type="text"],
+textarea {
+  width: calc(100% - 110px); /* 입력 요소의 너비를 설정합니다. */
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+/* 버튼 스타일 */
+button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* 버튼을 중앙 정렬합니다. */
+button[type="submit"] {
+  margin: 0 auto;
+  display: block;
+}
+
+
+
+/* 업데이트 */
+
+/* 폼 스타일 */
+form {
+  width: 50%; /* 폼의 너비를 설정합니다. */
+  margin: 0 auto; /* 수평 가운데 정렬 */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+}
+
+/* 라벨 스타일 */
+label {
+  display: inline-block;
+  width: 100px; /* 라벨의 너비를 설정합니다. */
+  font-weight: bold;
+}
+
+/* 입력 요소 스타일 */
+input[type="text"],
+textarea {
+  width: calc(100% - 110px); /* 입력 요소의 너비를 설정합니다. */
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+/* 버튼 스타일 */
+button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px; /* 버튼 간격을 조절합니다. */
+  margin: 0 auto;
+  display: block;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

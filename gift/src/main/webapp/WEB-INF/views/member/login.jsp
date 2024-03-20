@@ -199,7 +199,7 @@
 		            </td>
 	            </tr>
 	            <tr>
-	           		<td>
+	           		<td class="id_save">
 	             		<label id="member_id_save_text">아이디 저장</label>
 	             		<input type="checkbox"  onclick="idsave(this.form)" id="member_save_id_checkbox">
 	             		<label id = "member_save_id_checkbox"></label>

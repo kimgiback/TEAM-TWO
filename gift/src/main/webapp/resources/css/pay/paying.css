@@ -1,70 +1,238 @@
 @charset "UTF-8";
 
-  .container {
-        display: flex;
-        align-items: flex-start;
-        position: relative;
-    }
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
 
-    .image {
-        margin-right: 10px;
-        margin-top: 20px;
-        vertical-align: top;
-    }
+li {
+    line-height: 100%;
+}
 
-    .text-container {
-        display: flex;
-        flex-direction: column;
-    }
+.pay-wrap {
+    position: relative;
+    width: 1040px;
+    margin: 0 auto;  
+    margin-top: 100px;
+}
 
-    .brand {
-        font-size: 14px;
-        margin-top: 17px;
-    }
+h2 {
+    margin: 80px 0 0 0;
+    padding-bottom: 20px;
+    line-height: 35px;
+    font-size: 26px;
+}
 
-    .item_name {
-        font-size: 18px;
-        padding:5px;
-    }
-    .quantity {
-    font-size: 14px;
-        margin-top: 129px;
-    }
-    
-    .item_price {
-    	margin-left: 335px;
-    	margin-top : -16px;
-    }
-    
-     .button {
-    font-size: 18px; /* 버튼의 글자 크기를 조정합니다. */
-    padding: 10px 24px; /* 버튼 내부 여백을 조정합니다. */
-    border:none;
-    color:black;
-    border-radius: 10px;
+h2.bLine {
+    margin: 80px 0 32px 0;
+    border-bottom: 1px solid #222;
+}
+
+.justify-cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.one {
+    float: left;
+    width: 688px;    
+}
+
+div.two {
+    float: right;
+    width: 350px;
+}
+
+/* 왼쪽 */
+.gift-info {
+    position: relative;
+    display: inline-block;
+}
+
+/* 이미지 */
+.gift-info .gift-img {
+    float: left;
+    margin-right: 20px;
+}
+
+.gift-info .pimg {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 120px;
+}
+
+.gift-info .gift-img img {
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.gift-info .gift-info-desc.order {
+    width: 548px;
+}
+
+/* 브랜드명 */
+.gift-info .gift-info-desc .brandNm {
+    display: block;
+    height: 21px;
+    font-size: 16px;
+    line-height: 21px;
+    color: #222;
+}
+
+/* 상품명 */
+.gift-info .gift-info-desc .goodsNm {
+    display: block;
+    margin: 4px 0 8px 0;
+    height: 21px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 21px;
+    color: #222;
+}
+
+/* 개수 */
+.gift-info .gift-info-desc .count {
+    margin-top: 21px;
+    color: #222;
+    line-height: 21px;
+    height: 21px;
+}
+
+.gift-info .gift-info-desc .count .phoneCnt {
+    font-weight: bold;
+}
+
+/* 가격 */
+.gift-info .gift-info-desc .itemPrice {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.gift-info .gift-info-desc .itemPrice .price {
+    font-size: 20px;
+    margin: 0 4px;
+    font-weight: bold;
+    line-height: 25px;
+    height: 25px;
+    color: #222;
+    letter-spacing: normal;
+    display: inline-block;
+}
+
+/* 결제수단 */
+
+.row-type03>h3 {
+    margin-top: 24px;
+}
+
+.grid-container._tab04 {
+    width: 100%;  display: flex;
+}
+.row-type03 {
+    /* 가로로 나란히 배치하기 위해 Flexbox 사용 */
+    align-items: center; /* 수직 가운데 정렬 */
   }
   
-.button.active {
-    background-color: black;
+.grid-container._tab04 li {
+    margin-right: 10px; /* 각 입력 요소 사이의 간격 조정 */
+  }
+  
+.button {
+    padding: 10px 20px;
+    width: 130px;
+    border: none;
+    border-radius: 6px;
+    background-color: black; 
     color: white;
+    cursor: pointer; 
+  }
+
+/* 구매하기 */
+.btnBuyArea {
+    text-align: center; /* 입력 요소를 가운데 정렬 */
   }
   
-      table {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 1050px;
-        margin-top:-175px;
-        width: 250px;
-        height: 332px;    
-    }
-    td {
-        width: 200px; 
-        padding: 5px; 
-       
-    }
-    th {
-        width: 200px; 
-        padding: 5px; 
-       
-    }
+  .btnBuyArea input[type="button"] {
+    margin-top: 100px;
+    padding: 10px 20px;
+    width: 356px;
+    height: 64px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    background-color: #ec2028;
+        font-size: 20px;
+  }
+
+
+
+  /* 오른쪽 */
+  .box-type01 {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    padding: 40px 32px 20px;
+    background-color: #222;
+    border-radius: 12px;
+}
+
+.box-type01 h3 {
+    color: #fff;
+    margin: 0;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #fff;
+}
+
+.box-type01 table {
+    width: 100%;
+    font-size: 14px;
+}
+
+.box-type01 th {
+    text-align: left;
+}
+
+.box-type01 td {
+    text-align: right;
+}
+
+.box-type01 th, .box-type01 td {
+    height: 50px;
+    padding-top: 32px;
+    border: none;
+    color: #b6b6b6;
+}
+
+.box-type01 td strong {
+    color: #fff;
+    font-size: 16px;
+}
+
+.box-type01 td span {
+    color: #eee;
+    letter-spacing: normal;
+}
+
+.box-type01 .t-foot {
+    margin-top: auto;
+}
+
+/* 전체금액 */
+.box-type01 .t-foot strong {
+    font-size: 28px;
+    color: #ec2028;
+    vertical-align: middle;
+    letter-spacing: normal;
+}

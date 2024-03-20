@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+/* 전체 콘텐츠 정렬 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 콘텐츠 영역 스타일 */
+.content {
+  width: 1000px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* 제목 스타일 */
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* 폼 스타일 */
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: inline-block;
+  width: 15%; /* 라벨의 너비를 조정해주세요 */
+  margin: 10px 0 10px 0;
+}
+
+input[type="text"], .qu_content {
+  width: 30%; /* 입력 요소의 너비를 조정해주세요 */
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+  height: auto; /* 높이를 자동으로 설정하여 모든 내용이 보이도록 함 */
+  overflow: auto; /* 내용이 넘칠 경우 스크롤바 표시 */
+  vertical-align: top; /* 위쪽 정렬을 위해 */
+}
+
+.qu_content, .re_con {
+  width: 100%;
+  height: 250px;
+}
+
+/* 답변 스타일 */
+.replyList {
+  margin-bottom: 20px;
+}
+
+.replyOne {
+  margin-bottom: 15px;
+}
+
+.replyList .ti {
+  width: 15%;
+  margin: 10px 0 10px 0;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.replyList .writer .ticon {
+  display: inline-block;
+}
+
+.replyList .re_title .ticon {
+  display: inline-block;
+}
+
+.replyList .re_content .ti {
+  margin-bottom: 13px;
+}
+.replyList .re_content {
+  margin-bottom: 10px;
+}
+
+/* 버튼 스타일 */
+button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* 댓글 영역 스타일 */
+.replyBtnPart {
+  text-align: center;
+}
