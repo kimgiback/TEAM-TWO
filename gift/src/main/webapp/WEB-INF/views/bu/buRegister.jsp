@@ -6,12 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bu/buRegister.css">
 <!-- 제이쿼리 -->
  <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
  
 </head>
 <body>
+	<!-- 헤더영역 -->
+	<jsp:include page="../commons/header.jsp"></jsp:include>
+	
+	<div class="login">
+        <h1>관리자 회원가입</h1>
+    </div>
 	<form role="form">
             <p>
                 <label for="buId">아이디 </label><input type="text" id="buId" name="bu_id">
@@ -67,5 +73,8 @@
                 </script>
             </p>
         </form>
+        
+    <!-- 푸터영역 -->
+	<jsp:include page="../commons/footer.jsp"></jsp:include>
 </body>
 </html>

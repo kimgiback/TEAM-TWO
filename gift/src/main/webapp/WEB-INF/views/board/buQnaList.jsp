@@ -6,12 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/board/buQnaList.css">
 <!-- 제이쿼리 -->
  <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
- 
 </head>
 <body>
+	<!-- 헤더영역 -->
+	<jsp:include page="../commons/header.jsp"></jsp:include>
+	
 	<div class="qnaContent">
 		<table class="qnaList">
 			<tr>
@@ -33,5 +35,8 @@
 			</c:forEach>
 		</table>
 	</div>
+	
+	<!-- 푸터영역 -->
+	<jsp:include page="../commons/footer.jsp"></jsp:include>
 </body>
 </html>

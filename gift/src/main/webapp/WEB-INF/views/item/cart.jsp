@@ -220,7 +220,7 @@
                 <li>
                   <a style="cursor: pointer;" class="btn_type09" onclick="buy()">
                     <span class="icogift"></span>
-                    <span class="txt"><input type="button" value="구매하기" onclick="cartbuy()"></span>
+                    <span class="txt">구매하기</span>
                   </a>
                 </li>
                 <li>
@@ -236,6 +236,10 @@
 
     </section>
   </div>
+  
+	<!-- 푸터영역 -->
+	<jsp:include page="../commons/footer.jsp"></jsp:include>
+	
 </body>
 <script type="text/javascript">
 

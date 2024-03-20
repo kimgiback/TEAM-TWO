@@ -24,7 +24,7 @@ function cartRs() {
 		let json = (new Function('return' + data))();
 		
 		if (json.result == 'add_success' || json.result == 'update_success') {
-			if (confirm('추가 성공~ 장바구니로 이동?')) {
+			if (confirm('장바구니에 추가했습니까. 장바구니로 이동하시겠습니까?')) {
 				location.href='${pageContext.request.contextPath}/cartList';
 			}
 			return;
@@ -181,8 +181,11 @@ function payitem(f) {
 	</div>
     </section>
   </div>
-
   </form>  
+  
+    <!-- 푸터영역 -->
+	<jsp:include page="../commons/footer.jsp"></jsp:include>
+	
 </body>
 <script type="text/javascript">
 

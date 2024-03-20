@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/* 기본 여백과 패딩 초기화 */
+body, h1, h2, h3, p, ul, li, table, tr, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+/* 콘텐츠 가운데 정렬 */
+.qnaContent {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+/* 테이블 스타일 */
+.qnaList {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.qnaList th, .qnaList td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* 테이블 헤더 스타일 */
+.qnaList th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
+}
+
+.qnaList a {
+  text-decoration: none;
+  color: black;
+}
+
+.qnaList a:hover {
+  text-decoration: underline;
+}
