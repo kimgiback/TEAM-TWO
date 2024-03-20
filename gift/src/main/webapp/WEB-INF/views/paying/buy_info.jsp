@@ -48,6 +48,14 @@
 
 <script type="text/javascript">
 
+function getItemNo() {
+    var itemNo = document.getElementById('item_no').value;
+    console.log(itemNo); // 가져온 값 출력
+}
+
+// 함수 호출
+getItemNo();
+
 /* 선택한 상품들을 배열에 넣어놨음 컨트롤러에서 jsp 출력만 하면 됨 */
 let checkedItems = [];
 
@@ -181,7 +189,6 @@ function BuyingCheck() {
 </script>
 </head>
 <body>
-
 <div class="pay-wrap">
   <h2 class="bLine">결제정보</h2>
   <div class="col-type=01 justify-cont">
