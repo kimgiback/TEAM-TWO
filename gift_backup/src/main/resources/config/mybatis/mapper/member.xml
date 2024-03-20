@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="m">
+
+	<resultMap type="member" id="molu">
+		<result column="m_id" property="bu_id"/> 
+		<result column="m_pwd" property="bu_pwd"/> 
+		<result column="m_name" property="bu_name"/> 
+		<result column="m_adress" property="bu_adress"/> 
+		<result column="m_email" property="bu_email"/> 
+		<result column="m_phone" property="bu_phone"/> 
+	</resultMap>
+	
+	<select id="memberlogin" resultMap="molu" parameterType="java.util.HashMap" resultType="member">
+		select * from member where m_id =#{id} and m_pwd =#{pwd}
+	</select>
+	
+	<!-- <insert id="memberjoin" parameterType="dto.memberDTO"> -->
+	<!-- INSERT INTO MEMBER (M_IDX, M_ID, M_PWD, M_NAME, M_ADDRESS, M_EMAIL, M_PHONE)  -->	
+	<!--  VALUES (SEQ_M_IDX.NEXTVAL, #{m_id}, #{m_pwd}, #{m_name}, #{m_adress}, #{m_email},#{m_phone})-->	
+	<!-- </insert> -->
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

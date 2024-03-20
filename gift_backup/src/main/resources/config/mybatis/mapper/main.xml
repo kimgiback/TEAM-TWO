@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main">
+
+	<!-- 카테고리 정보 -->
+	<select id="category_info" resultType="category">
+		SELECT *
+		FROM CATEGORY
+	</select>
+
+	<!-- 전체 카테고리 상품 수 -->
+	<select id="itemCount_all" resultType="Integer">
+		SELECT COUNT(*) 
+		FROM ITEM
+	</select>
+
+	<!-- 전체 카테고리 상품 리스트 -->
+	<select id="itemList_all" resultType="item">
+		SELECT * 
+		FROM ITEM
+	</select>
+	
+	<select id="itemCount_cate" parameterType="Integer" resultType="Integer">
+		SELECT COUNT(*)
+		FROM ITEM
+		WHERE category_no = #{cate_no}
+	</select>
+	
+	<select id="itemList_cate" parameterType="Integer" resultType="item">
+		SELECT *
+		FROM ITEM
+		WHERE category_no = #{cate_no}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

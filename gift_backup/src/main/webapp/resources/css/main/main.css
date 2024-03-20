@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+header {
+	height: 150px;
+	text-align: center;
+	background-color: #eee;
+}
+
+footer {
+	height: 150px;
+	text-align: center;
+	background-color: #eee;
+}
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+ul, ol, li {list-style: none;}
+a {text-decoration: none; color: #222;}
+
+.section {
+	width: 1040px;
+	margin: auto;
+	padding: 10px;
+}
+
+/* -------- 메인 페이지 -------- */
+
+#main-banner {
+	height: 400px;
+	border: 1px solid #eee;
+}
+
+#main-product {
+
+}
+
+/* 2. 상품목록 */
+
+/* 2-1. 카테고리 */
+
+.cateListWrap {
+	margin: 40px 0 40px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.cateListWrap .cateList li a .img {
+	position:relative;
+	overflow: hidden;
+	margin: 0 auto;
+  	width: 80px;
+  	height: 80px;
+  	border-radius: 50%;
+}
+
+.cateListWrap .cateList li a img {
+	width: 100%;
+	height: 100%;
+}
+
+.cateListWrap .cateList li:hover a .img {
+ 	background-color: #f6f6f6;
+}
+
+.cateListWrap .cateList li a.on .img {
+ 	background-color: #f6f6f6;
+}
+
+.cateListWrap .cateList li:hover a p {
+	font-weight:bold;
+}
+
+.cateListWrap .cateList li a.on p {
+	font-weight:bold;
+}
+
+.cateList {
+	display: flex;
+}
+
+.category {
+	width: 173px;
+	padding: 10px;
+}
+
+.category p {
+	padding: 16px 8px; 
+	text-align: center;
+}
+
+/* 2-2. 상품 */
+
+/* 탭 */
+
+.tabWrap {
+	width: 100%;
+	height: 25px;
+	margin: 30px 0 24px 0;
+	display: inline-block;
+}
+
+.tabWrap .total {
+  	float: left;
+ 	line-height: 1.5;
+}
+
+.tabWrap .tab {
+	float: right;
+ 	line-height: 1.5;
+}
+
+.tabWrap .tab a.on {
+	
+}
+
+.tabWrap .tab a {
+	display: inline-block;
+	padding: 0 15px;
+  	border: 1px solid #eee;
+}
+
+/* 목록 */
+
+.itemList {
+}
+
+.itemList li {
+  	display: inline-block;
+  	text-align: left;
+  	width: calc(25% - 5px);
+}
+
+.itemList li .item_img {
+	position:relative;
+  	width: 100%;
+  	height: auto;
+  	overflow: hidden;  
+  	border-radius: 4px;
+}
+
+.itemList li .item_img::before {
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background-color: #000;
+  opacity: .04;
+}
+
+.itemList li .item_img img {
+	width: 100%;
+  	height: auto;
+}
+
+.itemList li .txtWrap {
+ 	width: 100%;
+  	height: 156px;
+  	margin-top: 12px;
+}
+
+.itemList li .txtWrap .brandNm {
+  	display: inline-block;
+  	width: 100%;
+  	height: 25px;
+  	margin-bottom: 4px;
+  	font-size: 16px;
+  	font-weight: bold;
+}
+
+.itemList li .txtWrap .price {
+  	display: inline-block;
+  	width: 100%;
+  	height: 25px;
+  	font-size: 20px;
+  	font-weight: bold;
+}
+
+.itemNm {
+  	width: 100%;
+  	height: 45px;
+}

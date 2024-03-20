@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+  .container {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .image {
+        margin-right: 10px;
+        margin-top: 20px;
+        vertical-align: top;
+    }
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .brand {
+        font-size: 14px;
+        margin-top: 17px;
+    }
+
+    .item_name {
+        font-size: 18px;
+        padding:5px;
+    }
+    .quantity {
+    font-size: 14px;
+        margin-top: 129px;
+    }
+    
+    .item_price {
+    	margin-left: 335px;
+    	margin-top : -16px;
+    }
+    
+     .button {
+    font-size: 18px; /* 버튼의 글자 크기를 조정합니다. */
+    padding: 10px 24px; /* 버튼 내부 여백을 조정합니다. */
+    border:none;
+    color:black;
+    border-radius: 10px;
+  }
+  
+.button.active {
+    background-color: black;
+    color: white;
+  }
+  
+      table {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 1050px;
+        margin-top:-175px;
+        width: 250px;
+        height: 332px;    
+    }
+    td {
+        width: 200px; 
+        padding: 5px; 
+       
+    }
+    th {
+        width: 200px; 
+        padding: 5px; 
+       
+    }

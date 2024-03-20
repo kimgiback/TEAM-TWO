@@ -1,0 +1,350 @@
+@charset "UTF-8";
+
+header {
+	height: 150px;
+	text-align: center;
+	background-color: #eee;
+}
+
+footer {
+	height: 150px;
+	text-align: center;
+	background-color: #eee;
+}
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+ul, ol, li {list-style: none;}
+a {text-decoration: none; color: #222;}
+
+table {
+  	border-collapse: collapse;
+  	border-spacing: 0;
+}
+
+.section {
+	width: 1040px;
+	margin: auto;
+	padding: 10px;
+}
+
+/* -------- 상품 상세 페이지 -------- */
+
+.datailInner {
+	display: flex;
+}
+
+/* 이미지 */
+
+.datailInner .imgWrap {
+	position: relative;
+  	width: 500px;
+  	height: 500px;
+  	padding: 0;
+  	margin: 0 40px 0 0;
+  	border-radius: 12px;
+  	overflow: hidden; 
+}
+
+.datailInner .imgWrap::before {
+   	box-sizing: border-box;
+   	content: "";
+   	display: block;
+   	position: absolute;
+   	top: 0;
+   	left: 0;
+   	bottom: 0;
+   	right: 0;
+   	z-index: 1;
+   	background-color: #000;
+	opacity: .04;
+}
+
+/* 상품정보 */
+
+.datailInner .txtWrap {
+  	width: 500px;
+  	height: 500px;
+}
+
+.datailInner .txtWrap .txtWrap-min {
+  	min-height: 436px;
+}
+
+/* 브랜드 로고 */
+
+.datailInner .brandNm {
+  	display: flex;
+  	line-height: 40px;
+}
+
+.datailInner .brandNm .brandImg {
+  	width: 40px;
+  	height: 40px;
+  	margin: 0 8px 0 0;
+  	padding: 3px;
+  	border-radius: 20px;
+  	overflow: hidden;
+  	border: 1px solid #eee;
+}
+
+.datailInner .brandNm .brandImg .img_brand {
+  	width: 32px;
+  	height: 32px;
+}
+
+.datailInner .brandNm span {
+  	text-decoration: underline;
+}
+
+/* 상품명 */
+
+.datailInner .itemNm {
+  	width: 100%;
+  	margin: 16px 0;
+  	font-size: 30px;
+  	font-weight: bold;
+  	line-height: 35px;
+}
+
+/* 가격 */
+
+.datailInner .price {
+  	width: 100%;
+  	height: 50px;
+  	display: inline-block;
+  	margin-bottom: 30px;
+}
+
+.datailInner .itemPrice .price em {
+  	font-size: 40px;
+  	font-weight: bold;
+  	font-style: normal;
+  	line-height: 1.15;
+  	display: inline-block;
+  	height: 32px;
+}
+
+/* 교환처 */
+
+.datailInner .itemInfo {
+	padding: 32px 0 24px 0;
+  	min-height: 58px;
+  	width: 100%;
+  	display: inline-block;
+  	border-top: 1px solid #eee;
+}
+
+.datailInner .itemInfo span {
+  	width: 104px;
+  	display: inline-block;
+  	color: #aaa;
+  	margin-right: 16px;
+}
+
+/* 버튼 */
+
+.btnSet {
+  	display: flex; 
+  	justify-content: space-between;
+  	height: 64px;
+}
+
+.btnSet .btnCart {
+  	width: 64px;
+  	height: 64px;
+  	display: grid;
+  	border-radius: 4px;
+  	border: 1px solid #b6b6b6;
+}
+
+.btnSet .btnCart em {
+  	margin: 0 auto;
+  	width: 32px;
+  	height: 64px;
+  	display: inline-block;
+  	background-size: 32px;
+  	background-position: 0 center;
+  	background-repeat: no-repeat;
+  	vertical-align: middle;
+  	background-image: url("../../images/icn_cart_default.png");
+}
+
+.btnSet .btnLike {
+  	width: 64px;
+  	height: 64px;
+  	display: grid;
+  	border-radius: 4px;
+  	border: 1px solid #ec2028;
+}
+
+.btnSet .btnLike em {
+  	margin: 0 auto;
+  	width: 32px;
+  	height: 64px;
+  	display: inline-block;
+  	background-size: 32px;
+  	background-position: 0 center;
+  	background-repeat: no-repeat;
+  	vertical-align: middle;
+  	background-image: url("../../images/icn_like_default.png");
+}
+
+.btnSet .btnBuy {
+  	width: 356px;
+  	height: 64px;
+  	line-height: 64px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+  	color: #fff;
+  	border-radius: 4px;
+  	background-color: #ec2028;
+}
+
+/* 상품설명 */
+
+.detailInfo {
+  	padding: 48px 0;
+  	margin-top: 25px;
+  	font-size: 16px;
+  	line-height: 1.75;
+  	letter-spacing: -0.8px;
+  	border: 1px solid #eee;
+}
+
+.detailInfo Strong {
+  	display: block;
+  	padding: 5px 0 5px 0;
+}
+
+.detailInfo .detailTxt {
+  	word-wrap: break-word;
+  	padding: 10px 0 15px 0;
+}
+
+/* -------- 찜 페이지 -------- */
+
+#wishcartArea {
+  	position: relative;
+}
+
+#wishcartArea h3.titline{
+    font-size: 16px;
+    height: 34px;
+    padding: 0 0 13px 9px;
+    /* margin-bottom: 10px; */
+    clear: both;
+}
+
+table.tableStyle03 {
+  	width: 100%;
+  	margin-bottom: 20px;
+  	border-bottom: 1px #666 solid;
+}
+
+table.tableStyle03 th {
+  	padding: 13px;
+  	font-size: 12px;
+  	color: #252525;
+  	border-bottom: 1px solid #ddd;
+  	background: #f7f7f7;
+  	font-weight: bold;
+  	text-align: center;
+}
+
+table.tableStyle03 td {
+  	padding: 13px 14px;
+  	color: #666;
+  	border-bottom: 1px solid #ddd;
+  	text-align: center;
+}
+
+table.tableStyle03 td.tleft {
+  	text-align: left;
+}
+
+colgroup {
+  	display: table-column-group;
+}
+
+/* 이미지 */
+
+.pimgArea {
+  	float: left;
+  	margin-right: 40px;
+  	width: 98px;
+  	height: 98px;
+  	background-color: #eee;
+}
+
+/* 상품명 */
+
+.basketBox .tit {
+  	font-size: 14px;
+  	color: #333;
+  	font-weight: bold;
+  	padding: 32px 0 11px 0;
+  	width: 510px;
+}
+.basketBox .company {
+  	padding-bottom: 30px;
+}
+
+/* 하단바 */
+
+.cartTotal {
+  	display: flex;
+  	background: #f7f7f7;
+  	height: 80px;
+  	line-height: 50px;
+  	padding: 15px 30px;
+  	margin: 50px 0 100px 0;
+}
+
+.cartTotal li {
+  	float: left;
+}
+
+/* 결제금액 */
+
+.cartTotal .totalPrice {
+  	font-size: 14px;
+  	font-weight: bold;
+  	border: 1px solid black;
+}
+
+.cartTotal .totalPrice ul li.price {
+  	padding-left: 85px;
+}
+
+/* 버튼 */
+
+.cartTotal .btnArea {
+  	margin-left: auto;
+}
+
+.cartTotal .btnArea .descTxt {
+  	line-height: 51px;
+  	padding-right: 20px;
+}
+
+a.btn_type09 {
+  	border: 1px solid black;
+  	display: inline-block;
+  	text-align: center;
+  	margin-right: 10px;
+  	min-width: 73px;
+}
+
+a.btn_type11 {
+  	border: 1px solid black;
+  	display: inline-block;
+  	text-align: center;
+  	min-width: 73px;
+}
+
+/* 페이징 */
+
+#paging {
+  	text-align: center;
+}
