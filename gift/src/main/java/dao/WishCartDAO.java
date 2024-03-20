@@ -82,10 +82,7 @@ public class WishCartDAO {
 			return sqlSession.selectOne("wishCart.idxCount", m_idx);
 		}
 		
-		//카트 전체 조회하기
-		public List<String> AllCartItem(CartItemDTO cartItemDTO) {
-			return sqlSession.selectList("wishCart.cartSelectAll",cartItemDTO);
-		}
+		
 		//카트 선택 조회하기
 		public List<CartItemDTO> AllCartItem(HashMap<String,Object> map) {
 			
