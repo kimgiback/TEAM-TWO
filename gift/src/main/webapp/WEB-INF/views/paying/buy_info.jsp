@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -195,6 +197,9 @@ function BuyingCheck() {
     <div class="button_container">
         <img src="${pageContext.request.contextPath}/resources/images/item/${dto.img_name}.jpg" width="200" height="200" class="image">
         <input type="button" value="${dto.brand}" class="item_button" onclick="">
+        <input type="hidden" value="${dto.item_no }" name="item_no" >
+         <input type="hidden" value="${dto.m_idx }" name="m_idx" >
+          <input type="hidden" value="${dto.payment }" name="payment" >
     </div>
     <div class="item_name"></div>
     <table border="1" align="center">
