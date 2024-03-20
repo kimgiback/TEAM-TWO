@@ -86,7 +86,7 @@
 				
 				$("#replyUpdate").click(function(){
 					replyForm1.attr("method", "get");
-					replyForm1.attr("action", "/bu/board/buReplyUpdateForm");
+					replyForm1.attr("action", "/gift/bu/board/buReplyUpdateForm");
 					replyForm1.submit();
 				})
 				
@@ -94,7 +94,7 @@
 				
 				$("#replyDelete").click(function(){
 					replyForm2.attr("method", "post");
-					replyForm2.attr("action", "/bu/board/buReplyDelete");
+					replyForm2.attr("action", "/gift/bu/board/buReplyDelete");
 					replyForm2.submit();
 				})
 			</script>
@@ -114,7 +114,7 @@
 				$("#replyWrite").click(function(){
 					let qna_no = ${qna.qna_no};
 					
-					self.location="/bu/board/buReplyWriteForm?qna_no="
+					self.location="/gift/bu/board/buReplyWriteForm?qna_no="
 							+qna_no;
 				})
 			</script>

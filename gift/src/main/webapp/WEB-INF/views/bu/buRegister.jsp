@@ -27,7 +27,7 @@
                 	let formObj2 = $("form[role='form']");
                 	
                 	$("#buIdCheck").click(function(){
-                		formObj2.attr("action", "/bu/member/buIdCheck")
+                		formObj2.attr("action", "/gift/bu/member/buIdCheck")
                 		formObj2.attr("method", "post");
                 		formObj2.submit();
                 	})
@@ -65,7 +65,7 @@
                 	
                 	$("#buLogin").click(function(){
                 		formObj1.attr("method", "post");
-                		formObj1.attr("action", "/bu/member/buRegister");
+                		formObj1.attr("action", "/gift/bu/member/buRegister");
                 		
              			formObj1.submit();
                 	})

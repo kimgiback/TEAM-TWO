@@ -39,7 +39,7 @@
                       
                       $("#buLogin").click(function(){
                         formObj1.attr("method", "post");
-                        formObj1.attr("action", "/bu/member/buLogin");
+                        formObj1.attr("action", "/gift/bu/member/buLogin");
                         
                         formObj1.submit();
                       })
@@ -50,7 +50,7 @@
                 
                   <script>
                     $("#buRegister").click(function(){
-                      self.location = "/bu/member/buRegisterForm";
+                      self.location = "/gift/bu/member/buRegisterForm";
                     })
                   </script>
                 </div>
@@ -66,10 +66,10 @@
             <!-- 임시로 고객센터, 상품등록 넣음 -->
               <div class="etcbtn">
                  <div class="go">
-                    <a href="bu/board/buQnaList">고객센터</a>
+                    <a href="/gift/bu/board/buQnaList">고객센터</a>
                     </div>
                     <div class="sa">
-                    <a href="/buItem/insertForm">상품등록</a>
+                    <a href="/gift/buItem/insertForm">상품등록</a>
                     </div>
                 </div>
             <div>
@@ -77,7 +77,7 @@
               
               <script>
                 $("#logout").click(function(){
-                  self.location="bu/member/buLogout";
+                  self.location="/gift/bu/member/buLogout";
                 })
               </script>
             </div>

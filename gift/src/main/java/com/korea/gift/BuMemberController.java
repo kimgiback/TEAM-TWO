@@ -41,7 +41,7 @@ public class BuMemberController {
 			int res = service.buRegister(dto);
 
 			if (res > 0) {
-				return "redirect:/";
+				return "redirect:/bu/member/buLoginForm";
 			}
 		} catch (Exception e) {
 			return BU_MEM_VIEW_PATH + "/buRegisterError.jsp";
@@ -50,7 +50,7 @@ public class BuMemberController {
 		return null;
 	}
 
-	@RequestMapping("buLoginForm")
+	@RequestMapping("/buLoginForm")
 	public String buLoginForm() {
 		System.out.println("/buLoginForm");
 
@@ -74,6 +74,8 @@ public class BuMemberController {
 			rttr.addFlashAttribute("msg", false);
 
 			System.out.println("login err");
+			
+			return "redirect:/bu/member/buLoginForm";
 		} else {
 			session.setAttribute("buLogin", login);
 
@@ -81,7 +83,7 @@ public class BuMemberController {
 		}
 
 		// jsp占쏙옙占쏙옙 c:if占쏙옙 占쏙옙占쏙옙 page 占쏙옙화 占쌍억옙占쏙옙占�
-		return "redirect:/";
+		return "redirect:/bu/member/buLoginForm";
 	}
 	
 	//占싸그아울옙

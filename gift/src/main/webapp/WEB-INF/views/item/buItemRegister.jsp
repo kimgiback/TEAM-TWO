@@ -18,7 +18,7 @@
 <div class="itemregi">
     <h1>상품 등록</h1>
 </div>
-<form name="item" enctype="multipart/form-data" method="post" action="/buItem/insert">
+<form name="item" enctype="multipart/form-data" method="post" action="/gift/buItem/insert">
 	<input type="hidden" name="category_no" value="00">
 	<input type="hidden" name="brand" value="00">
 	<input type="hidden" name="payment" value="00">

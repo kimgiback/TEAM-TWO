@@ -12,7 +12,7 @@
     <!-- 헤더영역 -->
 	<jsp:include page="../commons/header.jsp"></jsp:include>
 	
-	<form role="write" method="post" action="/bu/board/buReplyWrite">
+	<form role="write" method="post" action="/gift/bu/board/buReplyWrite">
 		<div class="form-group">
 			 <label for="qna_no"></label>
 			 <input type="text" id="qna_no" name="qna_no" value="${qna_no }">

@@ -12,7 +12,7 @@ import dao.MemberDAO;
 import dao.PayingDAO;
 import dao.UserQnaDAO;
 import dao.WishCartDAO;
-import dao.buItemDAO;
+import dao.BuItemDAO;
 import service.BuBoardService;
 import service.BuMemberService;
 
@@ -72,8 +72,8 @@ public class Context_2_dao {
 		}
 		
 		@Bean
-		public buItemDAO buItemDAO(SqlSession sqlSession) {
-			return new buItemDAO(sqlSession);
+		public BuItemDAO buItemDAO(SqlSession sqlSession) {
+			return new BuItemDAO(sqlSession);
 		}
 		
 
