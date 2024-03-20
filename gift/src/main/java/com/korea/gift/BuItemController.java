@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequestMapping("/buItem")
 @RequiredArgsConstructor
-public class buItemController {
+public class BuItemController {
 	
 	private final static String BU_ITEM_VIEW_PATH = "/WEB-INF/views/item";
 	
